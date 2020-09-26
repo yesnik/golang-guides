@@ -87,3 +87,10 @@ fmt.Println(age) // 0
 var enabled bool
 fmt.Println(enabled) // fales
 ```
+
+## Print type of the variable
+
+```go
+age := 18
+fmt.Printf("Type %T, value %v", age, age) // Type int, value 18
+```
