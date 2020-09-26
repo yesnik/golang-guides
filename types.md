@@ -1,5 +1,15 @@
 # Types
 
+Examples:
+
+```go
+// Way 1
+var age int = 18
+
+// Way 2
+age := 18
+```
+
 ## Numbers
 
 ### Signed
