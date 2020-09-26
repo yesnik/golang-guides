@@ -1,5 +1,23 @@
 # Types
 
+## Numbers
+
+### Signed
+
+- `int`  
+- `int8` (-128 - 127)
+- `int16` (-32768 - 32767)
+- `int32`
+- `int64`
+
+### Unsigned
+
+- `uint`
+- `uint8` / `byte` (0 - 255) 
+- `uint16` (0 - 65535)
+- `uint32` 
+- `uint64` 
+
 ## Arrays
 
 ```go
