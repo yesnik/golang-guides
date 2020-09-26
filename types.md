@@ -77,3 +77,13 @@ fmt.Println(figures["circle"]) // 5
 delete(figures, "circle")
 fmt.Println(figures)
 ```
+
+## Types have default values
+
+```go
+var age int
+fmt.Println(age) // 0
+
+var enabled bool
+fmt.Println(enabled) // fales
+```
