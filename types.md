@@ -16,7 +16,19 @@
 - `uint8` / `byte` (0 - 255) 
 - `uint16` (0 - 65535)
 - `uint32` 
-- `uint64` 
+- `uint64`
+
+### Float
+
+- `float32`
+- `float64`
+
+Examples:
+
+```go
+var speed = 65.3
+fmt.Printf("%T", speed) // float64
+```
 
 ## Arrays
 
