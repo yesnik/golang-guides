@@ -11,6 +11,9 @@
 
 ## Simple program
 
+Every Go program is made up of packages.
+Programs start running in package `main`.
+
 File hello.go:
 
 ```go
