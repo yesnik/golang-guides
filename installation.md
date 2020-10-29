@@ -27,6 +27,6 @@ func main() {
     
     fmt.Println("Hello " + name)
     fmt.Println(age)
-    fmt.Println("Current time: ", time.Now()) // 2020-10-30 00:45:14.986395317 +0500 +05 m=+0.000031018
+    fmt.Println("Current time: ", time.Now()) // 2020-10-25 00:45:14.986395317 +0500 +05 m=+0.000031018
 }
 ```
