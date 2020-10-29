@@ -7,6 +7,7 @@
 - `go run hello.go` - run program
 - `go build hello.go` - build executable file hello
 - `go env GOPATH` - show workspace path
+- `go fmt hello.go` - format Go source code. Oh it uses tabs, not spaces.
 
 ## Simple program
 
