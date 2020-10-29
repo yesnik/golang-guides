@@ -7,7 +7,7 @@
 - `go run hello.go` - run program
 - `go build hello.go` - build executable file hello
 - `go env GOPATH` - show workspace path
-- `go fmt hello.go` - format Go source code. Oh it uses tabs, not spaces.
+- `go fmt hello.go` - format Go source code. Oh, *it uses tabs*, not spaces.
 
 ## Simple program
 
@@ -18,6 +18,7 @@ package main
   
 import (
     "fmt"
+    "time"
 )
 
 func main() {
@@ -26,5 +27,6 @@ func main() {
     
     fmt.Println("Hello " + name)
     fmt.Println(age)
+    fmt.Println("Current time: ", time.Now()) // 2020-10-30 00:45:14.986395317 +0500 +05 m=+0.000031018
 }
 ```
