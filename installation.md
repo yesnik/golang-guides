@@ -1,5 +1,6 @@
 # Installation
 
+- https://golang.org/doc/install
 - [Ubuntu](https://github.com/golang/go/wiki/Ubuntu)
 
 ## Commands
