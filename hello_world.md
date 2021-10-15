@@ -2,12 +2,12 @@
 
 ## Example 1
 
-1. Create `go.mod` file. When your code imports packages contained in other modules, 
-you manage those dependencies through your code's own module. That module is defined by a `go.mod` file 
-that tracks the modules that provide those packages. 
+1. Init module: 
     ```bash
     go mod init example/hello
     ```
+    This command creates a `go.mod` file to track your code's dependencies.
+
 2. Create file `hello.go`:
     ```go
     package main
