@@ -1,5 +1,27 @@
 # Types
 
+## Built-in 17 Basic Types in Go
+
+- boolean type - `bool`
+- 11 built-in integer numeric types:
+    - `int8`, `uint8` (alias `byte`)
+    - `int16`, `uint16` 
+    - `int32`, `uint32` (alias `rune`) 
+    - `int64`, `uint64`
+    - `int`, `uint`, `uintptr`.
+- 2 built-in floating-point numeric types: `float32`, `float64`.
+- 2 built-in complex numeric types: `complex64`, `complex128`.
+- built-in string type: `string`.
+
+### Notes
+
+- `u` in `uint8` means unsigned type. Values of unsigned types are always non-negative. 
+- The number in the name of a type means how many binary bits a value of the type will occupy in memory at run time:
+    - Value of the `uint8` occupies 8 bits in memory.
+    - The largest `uint8` value is 255 (2^8-1)
+    - The smallest `int8` value is -128 (-2^7), largest `int8` value is 127 (2^7-1), 
+- We measure the size of a value based on the number of bytes it occupies in memory. One `byte` contains 8 bits. So the size of the `uint32` type is 4 bytes.
+
 Examples:
 
 ```go
