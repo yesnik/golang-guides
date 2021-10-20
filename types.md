@@ -22,6 +22,14 @@
     - The smallest `int8` value is -128 (-2^7), largest `int8` value is 127 (2^7-1), 
 - We measure the size of a value based on the number of bytes it occupies in memory. One `byte` contains 8 bits. So the size of the `uint32` type is 4 bytes.
 
+### Zero Values
+
+The zero value of a type can be viewed as the default value of the type:
+
+- `boolean` type - false
+- `numeric` type - 0 (different numeric types may have different sizes in memory)
+- `string` type - empty string
+
 Examples:
 
 ```go
