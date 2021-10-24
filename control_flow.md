@@ -100,12 +100,22 @@ The deferred call's arguments are evaluated immediately, but the function call i
 
 ```go
 func main() {
-	defer fmt.Println("world")
+    defer fmt.Println("world")
 
-	fmt.Println("hello")
+    fmt.Println("hello")
 }
 /*
 hello
 world
 */
+```
+
+Deferred function calls are **pushed onto a stack**. When a function returns, its deferred calls are executed in last-in-first-out order.
+
+```go
+func main() {
+    for i := 1; i <= 3; i++ {
+        defer fmt.Println(i)
+    }
+}
 ```
