@@ -19,3 +19,24 @@ Index: 1 - value: 4
 Index: 2 - value: 6
 */
 ```
+
+## Skip index or value
+
+We can skip the index or value by assigning to `_`.
+
+If we only want the index, we can omit the second variable.
+
+```go
+nums := make([]int, 3)
+for i := range nums {
+  nums[i] = i * i
+}
+for _, value := range nums {
+  fmt.Printf("%d\n", value)
+}
+/*
+0
+1
+4
+*/
+```
