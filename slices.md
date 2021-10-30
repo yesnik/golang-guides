@@ -185,3 +185,35 @@ func main() {
 	}
 }
 ```
+
+## Appending to a slice
+
+Function `append` allows us to append new elements to a slice.
+
+The resulting value of append is a slice containing all the elements of the original slice plus the provided values.
+
+If the backing array of `s` is too small to fit all the given values a bigger array will be allocated. 
+The returned slice will point to the newly allocated array.
+
+```go
+func main() {
+	var s []int
+	printSlice(s) // [] len=0 cap=0
+
+	// append works on nil slices.
+	s = append(s, 1)
+	printSlice(s) // [1] len=1 cap=1
+
+	// The slice grows as needed.
+	s = append(s, 1)
+	printSlice(s) // [1 1] len=2 cap=2
+
+	// We can add more than one element at a time.
+	s = append(s, 1, 2)
+	printSlice(s) // [1 1 1 2] len=4 cap=4
+}
+
+func printSlice(s []int) {
+	fmt.Printf("%v len=%d cap=%d\n", s, len(s), cap(s))
+}
+```
