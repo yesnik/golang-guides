@@ -33,3 +33,28 @@ b[0] = "ZZZ"
 fmt.Println(a, b) // [A ZZZ] [ZZZ C]
 fmt.Println(letters) // [A ZZZ C D]
 ```
+
+## Slice literals
+
+A slice literal is like an array literal without the length.
+
+This is an array literal: `[3]bool{true, true, false}`
+
+And this creates the same array as above, then builds a slice that references it: `[]bool{true, true, false}`
+
+```go
+nums := []int{1, 2, 3}
+fmt.Println(nums) // [1 2 3]
+
+r := []bool{true, false}
+fmt.Println(r) // [true false]
+
+s := []struct {
+  i int
+  b bool
+}{
+  {1, true},
+  {2, false},
+}
+fmt.Println(s) // [{1 true} {2 false}]
+```
