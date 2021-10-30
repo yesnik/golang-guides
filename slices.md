@@ -58,3 +58,31 @@ s := []struct {
 }
 fmt.Println(s) // [{1 true} {2 false}]
 ```
+
+## Slice defaults
+
+When slicing, we can omit the high or low bounds to use their defaults instead.
+
+The default is zero for the low bound and the length of the slice for the high bound.
+
+For the array `var a [5]int` these slice expressions are equivalent:
+
+```go
+a[0:5]
+a[:5]
+a[0:]
+a[:]
+```
+
+```go
+s := []int{2, 4, 6, 8, 10}
+
+s1 := s[1:4]
+fmt.Println(s1) // [4 6 8]
+
+s2 := s[:3]
+fmt.Println(s2) // [2 4 6]
+
+s3 := s[2:]
+fmt.Println(s3) // [6 8 10]
+```
