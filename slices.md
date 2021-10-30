@@ -120,3 +120,39 @@ func printSlice(s []int) {
 	fmt.Printf("%v len=%d cap=%d\n", s, len(s), cap(s))
 }
 ```
+
+## Nil slices
+
+The zero value of a slice is `nil`. A `nil` slice has a length and capacity of `0` and has no underlying array.
+
+```go
+var s []int
+fmt.Println(s, len(s), cap(s)) // [] 0 0
+fmt.Println(s == nil) // true
+```
+
+## Create a slice with make
+
+Function `make` helps to create dynamically-sized arrays.
+
+The `make` function allocates a zeroed array and returns a slice that refers to that array:
+
+```go
+func main() {
+	a := make([]int, 5)
+	printSlice(a) // [0 0 0 0 0] len=5 cap=5
+
+	b := make([]int, 0, 5) // Third argument is capacity
+	printSlice(b) // [] len=0 cap=5
+
+	c := b[:2]
+	printSlice(c) // [0 0] len=2 cap=5
+
+	d := c[2:5]
+	printSlice(d) // [0 0 0] len=3 cap=3
+}
+
+func printSlice(x []int) {
+	fmt.Printf("%v len=%d cap=%d\n", x, len(x), cap(x))
+}
+```
