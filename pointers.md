@@ -16,3 +16,24 @@ fmt.Println(*p) // 5 - get value of `x` through a pointer
 *p = 7 // set value to `x` through a pointer
 fmt.Println(i) // 7
 ```
+
+## Pointers to structs
+
+Struct fields can be accessed through a *struct pointer*.
+
+To access the field `Y` of a struct we could write `(*p).Y`. But this is cumbersome, so the language allows to write `p.X`, without the explicit *dereference*.
+
+```go
+type Vertex struct {
+	X int
+	Y int
+}
+
+func main() {
+	v := Vertex{1, 2}
+	p := &v
+  
+	p.Y = 5 // also we could write here: `(*p).Y = 5`
+	fmt.Println(v) // {1 5}
+}
+```
