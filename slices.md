@@ -156,3 +156,32 @@ func printSlice(x []int) {
 	fmt.Printf("%v len=%d cap=%d\n", x, len(x), cap(x))
 }
 ```
+
+## Slices of slices
+
+Slices can contain any type, including other slices.
+
+```go
+import (
+	"fmt"
+	"strings"
+)
+
+func main() {
+	board := [][]string{
+		[]string{"_", "_"},
+		[]string{"_", "_"},
+	}
+	
+	fmt.Println(board) // [[_ _] [_ _]]
+
+	board[0][0] = "1"
+	board[0][1] = "2"
+	board[1][0] = "3"
+	board[1][1] = "4"
+
+	for i := 0; i < len(board); i++ {
+		fmt.Printf("%s\n", strings.Join(board[i], " "))
+	}
+}
+```
