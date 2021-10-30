@@ -86,3 +86,37 @@ fmt.Println(s2) // [2 4 6]
 s3 := s[2:]
 fmt.Println(s3) // [6 8 10]
 ```
+
+## Slice length and capacity
+
+A slice has:
+
+- length: the number of elements it contains. Function: `len(slice)`
+- capacity: the number of elements in the underlying array, counting from the first element in the slice. Function: `cap(slice)`
+
+You can extend a slice's length by re-slicing it, provided it has sufficient capacity. 
+
+If we'll try to extend slice beyond its capacity, error will occur: *panic: runtime error: slice bounds out of range [:10] with capacity 5*
+
+```go
+func main() {
+	s := []int{2, 4, 6, 8, 10}
+	printSlice(s) // [2 4 6 8 10] len=5 cap=5
+
+	// Slice the slice to give it zero length.
+	s = s[:0]
+	printSlice(s) // [] len=0 cap=5
+
+	// Extend its length.
+	s = s[:4]
+	printSlice(s) // [2 4 6 8] len=4 cap=5
+
+	// Drop its first two values.
+	s = s[2:]
+	printSlice(s) // [6 8] len=2 cap=3
+}
+
+func printSlice(s []int) {
+	fmt.Printf("%v len=%d cap=%d\n", s, len(s), cap(s))
+}
+```
