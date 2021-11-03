@@ -124,3 +124,18 @@ fmt.Println(enabled) // fales
 age := 18
 fmt.Printf("Type %T, value %v", age, age) // Type int, value 18
 ```
+
+## Type conversions
+
+Unlike in C, in Go assignment between items of different type requires an explicit conversion. 
+
+```go
+a := 257
+fmt.Println(uint8(a)) // 1
+b := 258
+fmt.Println(uint8(b)) // 2
+
+f := 3.14
+i := int(f)
+fmt.Println(i) // 3
+```
