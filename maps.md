@@ -51,3 +51,26 @@ var m = map[string]Vertex{
 	"Google":    {37.42202, -122.08408},
 }
 ```
+
+### Mutating mags
+
+```go
+m := make(map[string]int)
+
+m["age"] = 16
+fmt.Println(m["age"]) // 16
+
+m["age"] = 21
+fmt.Println(m["age"]) // 21
+
+// If key is in m, ok is true. 
+v, ok := m["age"]
+fmt.Println("The value:", v, "Present?", ok) // The value: 21 Present? true
+
+delete(m, "age")
+fmt.Println(m["age"]) // 0
+
+// If key is not in the map, then elem is the zero value for the map's element type.
+v, ok = m["age"]
+fmt.Println("The value:", v, "Present?", ok) // The value: 0 Present? false
+```
