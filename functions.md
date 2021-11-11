@@ -58,3 +58,28 @@ func main() {
 3 -3
 */
 ```
+
+### Fibonacci exercise
+
+Implement a fibonacci function that returns a function (a closure) that returns successive fibonacci numbers (0, 1, 1, 2, 3, 5, ...).
+
+```go
+// fibonacci is a function that returns
+// a function that returns an int.
+func fibonacci() func() int {
+	// We need to set a = 1, b = 0, to ..
+	a, b := 1, 0
+	return func() int {
+		// .. make a == 0 in the first iteration
+		a, b = b, a + b
+		return a
+	}
+}
+
+func main() {
+	f := fibonacci()
+	for i := 0; i < 10; i++ {
+		fmt.Println(f())
+	}
+}
+```
