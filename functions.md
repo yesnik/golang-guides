@@ -26,3 +26,35 @@ func main() {
 	fmt.Println(compose(exclamation_point_add)) // Hello World!
 }
 ```
+
+## Function closures
+
+A *closure* is a function value that references variables from outside its body. 
+The function may access and assign to the referenced variables. We can say that the function is "bound" to the variables.
+
+For example, the `counter` function returns a closure. Each closure is bound to its own variable - `up` and `down`.
+
+```go
+func counter() func(int) int {
+	sum := 0
+	return func(x int) int {
+		sum += x
+		return sum
+	}
+}
+
+func main() {
+	up, down := counter(), counter()
+	for i := 0; i < 3; i++ {
+		fmt.Println(
+			up(i),
+			down(-i),
+		)
+	}
+}
+/* Output:
+0 0
+1 -1
+3 -3
+*/
+```
