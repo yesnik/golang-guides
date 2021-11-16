@@ -22,3 +22,20 @@ func main() {
 	fmt.Println(s.FullName()) // Kenny Smith
 }
 ```
+
+Method is *just a function* with a receiver argument. We can rewrite `FullName` as a regular function with no change in functionality:
+
+```go
+type Student struct {
+	firstname, lastname string
+}
+
+func FullName(s Student) string {
+	return s.firstname + " " + s.lastname
+}
+
+func main() {
+	s := Student{"Kenny", "Smith"}
+	fmt.Println(FullName(s)) // Kenny Smith
+}
+```
