@@ -86,3 +86,35 @@ func main() {
 	fmt.Println(s.FullName()) // Larry Doe
 }
 ```
+
+## Value receiver VS pointer receiver
+
+There are two reasons to use a pointer receiver.
+
+1. The method can modify the value that its receiver points to.
+2. Avoid copying the value on each method call. This can be more efficient if the receiver is a large struct.
+
+In general, all methods on a given type should have either value or pointer receivers, but not a *mixture of both*.
+
+In this example, both `Scale` and `Area` are with receiver type `*Square`, even though the `Area` method needn't modify its receiver.
+
+```go
+type Square struct {
+	A float64
+}
+
+func (s *Square) Scale(f float64) {
+	s.A = s.A * f
+}
+
+func (s *Square) Area() float64 {
+	return s.A * s.A
+}
+
+func main() {
+	s := Square{3}
+	fmt.Printf("%s, Area: %v\n", s, s.Area()) // {%!s(float64=3)}, Area: 9
+	s.Scale(2)
+	fmt.Printf("%s, Area: %v\n", s, s.Area()) // {%!s(float64=6)}, Area: 36
+}
+```
