@@ -39,3 +39,25 @@ func main() {
 	fmt.Println(FullName(s)) // Kenny Smith
 }
 ```
+
+## Declare a method on non-struct types
+
+We can declare a method on non-struct types.
+
+We can only declare a method with a receiver whose type is defined in the same package as the method. 
+We can't declare a method with a receiver whose type is defined in another package (which includes the built-in types such as int).
+
+In this example we see a string type `MyString` with an `Concat` method.
+
+```go
+type MyString string
+
+func (a MyString) Concat(b string) string {
+	return string(a) + b
+}
+
+func main() {
+	s := MyString("Hello")
+	fmt.Println(s.Concat(" world")) // Hello world
+}
+```
