@@ -61,3 +61,28 @@ func main() {
 	fmt.Println(s.Concat(" world")) // Hello world
 }
 ```
+
+## Methods with pointer receivers
+
+Methods with pointer receivers can modify the value to which the receiver points. 
+Since methods often need to modify their receiver, pointer receivers are more common than value receivers.
+
+```go
+type Student struct {
+	firstName, lastName string
+}
+
+func (s Student) FullName() string {
+	return s.firstName + " " + s.lastName
+}
+
+func (s *Student) ChangeFirstName(firstName string) {
+	s.firstName = firstName
+}
+
+func main() {
+	s := Student{"Joe", "Doe"}
+	s.ChangeFirstName("Larry")
+	fmt.Println(s.FullName()) // Larry Doe
+}
+```
