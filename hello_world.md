@@ -18,6 +18,10 @@
         fmt.Println("Hello, World!")
     }
     ```
+    The package `main` tells the Go compiler that the package should compile as an executable program instead of a shared library. 
+    The `main()` function in the package `main` will be the entry point of our executable program. 
+    When you build shared libraries, you will not have any `main` package and `main()` function in the package.
+    
     This code uses [fmt](https://pkg.go.dev/fmt) package, which contains functions for formatting text, including printing to the console. 
 3. Run code:
     ```bash
@@ -26,7 +30,7 @@
 
 ## Example 2
 
-1. Create file `greeting.go`
+1. Create file `greeting.go`:
     ```go
     package main
 
