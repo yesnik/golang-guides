@@ -6,15 +6,34 @@ Any real-world entity which has some set of properties/fields can be represented
 Struct fields are accessed using a dot.
 
 ```go
-type Vertex struct {
-	X int
-	Y int
+type Address struct {
+	city       string
+	street     string
+	homeNumber int
 }
 
 func main() {
-	v := Vertex{1, 2}
-	v.X = 5
-	fmt.Println(v.X) // 5
+	a := Address{city: "Moscow", street: "Lenina", HomeNumber: 1}
+	fmt.Println(a) // {Moscow Lenina 1}
+
+	// We can initialize a variable of a struct type using a struct literal
+	b := Address{"NY", "Yellow", 2}
+	fmt.Println(b)            // {NY Yellow 2}
+	fmt.Println(b.city)       // NY
+	fmt.Println(b.street)     // Yellow
+	fmt.Println(b.HomeNumber) // 2
+}
+```
+The `type` keyword introduces a new type. 
+It is followed by the name of the type (`Address`) and the keyword `struct` to illustrate that we’re defining a struct. 
+The struct contains a list of various fields inside the curly braces. Each field has a name and a type.
+
+We can also make struct compact by combining the various fields of the same type:
+
+```go
+type Address struct {
+	city, street string
+	HomeNumber   int
 }
 ```
 
