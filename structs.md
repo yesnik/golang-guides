@@ -1,6 +1,7 @@
 # Structs
 
-A *struct* is a collection of fields. 
+*Struct* in Golang is a user-defined type that allows to group/combine items of possibly different types into a single type. 
+Any real-world entity which has some set of properties/fields can be represented as a struct. 
 
 Struct fields are accessed using a dot.
 
