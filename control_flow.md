@@ -36,6 +36,16 @@ for sum < 3 {
 fmt.Println(sum)
 ```
 
+Infinite loop in Go:
+
+```go
+var a int = 0;
+for {
+    a += 1
+    fmt.Println(a)
+}
+```
+
 ## if / else
 
 ```go
