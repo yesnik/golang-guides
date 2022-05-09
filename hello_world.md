@@ -2,6 +2,21 @@
 
 ## Example 1
 
+1. File `hello.go`:
+    ```go
+    package main
+
+    import "fmt"
+
+    func main() {
+        fmt.Println("Hello")
+    }
+    ```
+2. Build `go build hello.go`
+3. Run `./hello`
+
+## Example 2
+
 1. Init module: 
     ```bash
     go mod init example/hello
@@ -28,7 +43,7 @@
     go run .
     ```
 
-## Example 2
+## Example 3
 
 1. Create file `greeting.go`:
     ```go
