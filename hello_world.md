@@ -12,8 +12,9 @@
         fmt.Println("Hello")
     }
     ```
-2. Build `go build hello.go`
-3. Run `./hello`
+2. We can run our program: `go run hello.go`
+3. Also we can build binary file: `go build hello.go`
+4. Run binary file: `./hello`
 
 ## Example 2
 
