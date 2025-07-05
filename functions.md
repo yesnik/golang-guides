@@ -25,6 +25,22 @@ func main() {
 }
 ```
 
+## Named return values
+
+Go's return values may be named. If so, they are treated as variables defined at the top of the function.
+Here we can see a *"naked" return*. It returns the named return values.
+```go
+func split(sum int) (a, b int) {
+	a = sum - 5
+	b = sum - a
+	return
+}
+
+func main() {
+	fmt.Println(split(12)) // Output: 7 5
+}
+```
+
 ## Function values
 
 Functions are values too. They can be passed around just like other values.
