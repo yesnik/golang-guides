@@ -73,7 +73,7 @@ fmt.Println(base) // Error: undefined: base
 
 ## switch
 
-Go only runs the selected case, not all the cases that follow. 
+Go runs the first case whose value is equal to the condition expression.
 The `break` statement that is needed at the end of each case in PHP, Java, Javascript is provided automatically in Go.
 Switch cases evaluate cases from top to bottom, stopping when a case succeeds.
 
