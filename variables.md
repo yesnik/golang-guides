@@ -25,3 +25,24 @@ func main() {
 	fmt.Println(a, b, active, name) // Output: 1 2 true Kenny
 }
 ```
+
+## Short assignment statement `:=`
+
+Inside a function, the `:=` short assignment statement can be used in place of a `var` declaration with implicit type.
+
+Outside a function, every statement begins with a keyword (var, func, and so on) and so the := construct is not available.
+
+```go
+x := 1 // Syntax error: non-declaration statement outside function body
+var y = 1 // No error
+
+func main() {
+	var a, b int = 1, 2
+	c := 3
+	
+	active, name := true, "John"
+
+	fmt.Println(a, b, c, active, name) // Output: 1 2 3 true John
+}
+```
+
