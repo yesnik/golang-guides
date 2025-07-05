@@ -10,6 +10,21 @@ func add(a, b int) int {
 }
 ```
 
+## A function can return any number of results
+
+This function returns 3 strings:
+
+```go
+func swap(a, b, c string) (string, string, string) {
+	return c, b, a
+}
+
+func main() {
+	a, b, c := swap("one", "two", "three")
+	fmt.Println(a, b, c) // Output: three two one
+}
+```
+
 ## Function values
 
 Functions are values too. They can be passed around just like other values.
