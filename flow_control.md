@@ -48,6 +48,8 @@ for {
 
 ## if / else
 
+Go's `if` statements are like its `for` loops; the expression need not be surrounded by parentheses `( )` but the braces `{ }` are required.
+
 ```go
 t := 95
 if t > 90 {
@@ -62,10 +64,11 @@ Variables declared by the statement are only in scope until the end of the if. A
 ```go
 t := 14
 if base := "Turn "; t < 15 {
-  fmt.Println(base + "on")
+  fmt.Println(base + "on") // Output: Turn on
 } else {
   fmt.Println(base + "off")
 }
+fmt.Println(base) // Error: undefined: base
 ```
 
 ## switch
