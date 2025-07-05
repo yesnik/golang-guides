@@ -132,13 +132,29 @@ fmt.Printf("Type %T, value %v", age, age) // Type int, value 18
 Unlike in C, in Go assignment between items of different type requires an explicit conversion. 
 
 ```go
-func main() {
-	var a, b int = 3, 4
-	var z float64 = math.Sqrt(float64(a*a + b*b))
+var a, b int = 3, 4
+var z float64 = math.Sqrt(float64(a*a + b*b))
 
-	var c int = z // Error: cannot use z (variable of type float64) as int value in variable declaration
-	var c int = int(z) // No error
+var c int = z // Error: cannot use z (variable of type float64) as int value in variable declaration
+var c int = int(z) // No error
 
-	fmt.Println(a, b, c) // Output: 3 4 5
-}
+fmt.Println(a, b, c) // Output: 3 4 5
+```
+
+## Type inference
+
+When the right hand side of the declaration is typed, the new variable is of that same type:
+
+```go
+a := 5
+fmt.Printf("%v is of type %T\n", a, a) // Output: 5 is of type int
+
+b := 5.3
+fmt.Printf("%v is of type %T\n", b, b) // Output: 5.3 is of type float64
+
+c := 1234567890123456789
+fmt.Printf("%v is of type %T\n", c, c) // Output: 1234567890123456789 is of type int
+
+d := "John"
+fmt.Printf("%v is of type %T\n", d, d) // Output: John is of type string
 ```
