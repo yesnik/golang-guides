@@ -128,7 +128,8 @@ Deferred function calls are **pushed onto a stack**. When a function returns, it
 ```go
 func main() {
     for i := 1; i <= 3; i++ {
-        defer fmt.Println(i)
+        defer fmt.Print(i)
     }
 }
+// Output: 321
 ```
