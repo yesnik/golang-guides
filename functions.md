@@ -1,5 +1,15 @@
 # Functions
 
+## Omit the type
+
+In this example, we shortened `a int, b int` to `a, b int`:
+
+```go
+func add(a, b int) int {
+	return a + b
+}
+```
+
 ## Function values
 
 Functions are values too. They can be passed around just like other values.
