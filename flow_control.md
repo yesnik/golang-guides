@@ -1,4 +1,4 @@
-# Control Flow Statements
+# Flow Control Statements
 
 ## for loop
 
@@ -10,33 +10,33 @@ Go has **only one** looping construct, the `for` loop. The basic for loop has th
 
 ```go
 sum := 0
-for i := 1; i < 3; i++ {
+for i := 1; i <= 3; i++ {
   sum += i
 }
-fmt.Println(sum)
+fmt.Println(sum) // Output: 6
 ```
 
 The init and post statements are optional:
 
 ```go
 sum := 0
-for ; sum < 3; {
+for ; sum <= 2; {
   sum += 1
 }
-fmt.Println(sum)
+fmt.Println(sum) // Output: 3
 ```
 
-C's `while` is spelled `for` in Go.
+At that point you can drop the semicolons: C's `while` is spelled `for` in Go.
 
 ```go
-sum := 1
+sum := 0
 for sum < 3 {
   sum += 1
 }
-fmt.Println(sum)
+fmt.Println(sum) // Output: 3
 ```
 
-Infinite loop in Go:
+If we omit the loop condition it loops forever, so an infinite loop is compactly expressed:
 
 ```go
 var a int = 0;
