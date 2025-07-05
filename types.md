@@ -132,12 +132,13 @@ fmt.Printf("Type %T, value %v", age, age) // Type int, value 18
 Unlike in C, in Go assignment between items of different type requires an explicit conversion. 
 
 ```go
-a := 257
-fmt.Println(uint8(a)) // 1
-b := 258
-fmt.Println(uint8(b)) // 2
+func main() {
+	var a, b int = 3, 4
+	var z float64 = math.Sqrt(float64(a*a + b*b))
 
-f := 3.14
-i := int(f)
-fmt.Println(i) // 3
+	var c int = z // Error: cannot use z (variable of type float64) as int value in variable declaration
+	var c int = int(z) // No error
+
+	fmt.Println(a, b, c) // Output: 3 4 5
+}
 ```
