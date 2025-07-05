@@ -6,7 +6,7 @@
 - 11 built-in integer numeric types:
     - `int8`, `uint8` (alias `byte`)
     - `int16`, `uint16` 
-    - `int32`, `uint32` (alias `rune`) 
+    - `int32`, `uint32` (alias `rune`, it represents a Unicode code point) 
     - `int64`, `uint64`
     - `int`, `uint`, `uintptr`.
 - 2 built-in floating-point numeric types: `float32`, `float64`.
@@ -41,6 +41,8 @@ age := 18
 ```
 
 ## Numbers
+
+When you need an integer value you should use `in`t unless you have a specific reason to use a sized or unsigned integer type.
 
 ### Signed
 
