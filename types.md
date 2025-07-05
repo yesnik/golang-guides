@@ -24,20 +24,20 @@
 
 ### Zero Values
 
-The zero value of a type can be viewed as the default value of the type:
+Variables declared without an explicit initial value are given their *zero value*.
 
-- `boolean` type - false
-- `numeric` type - 0 (different numeric types may have different sizes in memory)
-- `string` type - empty string
-
-Examples:
+- `false` - for the `boolean` type
+- `0` - for numeric types (different numeric types may have different sizes in memory)
+- `""` (empty string) - for `string` type
 
 ```go
-// Way 1
-var age int = 18
-
-// Way 2
-age := 18
+func main() {
+	var a int
+	var b float64
+	var active bool
+	var name string
+	fmt.Printf("%v %v %v %q\n", a, b, active, name) // Output: 0 0 false ""
+}
 ```
 
 ## Numbers
