@@ -37,6 +37,26 @@ type Address struct {
 }
 ```
 
+## Pointers to struct
+
+To access the field `X` of a struct when we have the struct pointer `p` we could write `(*p).X`. However, the language permits us instead to write just `p.X`:
+
+```go
+type Vertex struct {
+	X, Y int
+}
+
+func main() {
+	v := Vertex{1, 2}
+	p := &v
+	// Way 1
+	(*p).X = 11
+	// Way 2
+	p.X = 11
+	fmt.Println(v) // Output: {11 2}
+}
+```
+
 ## Struct Literals
 
 A struct literal is a newly allocated struct value.
