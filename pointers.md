@@ -14,7 +14,7 @@ fmt.Println(p) // 0xc000018030
 fmt.Println(*p) // 5 - get value of `x` through a pointer
 
 *p = 7 // set value to `x` through a pointer
-fmt.Println(i) // 7
+fmt.Println(x) // 7
 ```
 
 ## Pointers to structs
