@@ -184,6 +184,10 @@ func main() {
 		fmt.Printf("%s\n", strings.Join(board[i], " "))
 	}
 }
+/*
+1 2
+3 4
+*/
 ```
 
 ## Appending to a slice
