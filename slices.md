@@ -91,8 +91,8 @@ fmt.Println(s3) // [6 8 10]
 
 A slice has:
 
-- length: the number of elements it contains. Function: `len(slice)`
-- capacity: the number of elements in the underlying array, counting from the first element in the slice. Function: `cap(slice)`
+- **length**: the number of elements it contains. Function: `len(slice)`
+- **capacity**: the number of elements in the underlying array, counting from the *first element* in the slice. Function: `cap(slice)`
 
 You can extend a slice's length by re-slicing it, provided it has sufficient capacity. 
 
