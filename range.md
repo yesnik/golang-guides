@@ -27,16 +27,15 @@ We can skip the index or value by assigning to `_`.
 If we only want the index, we can omit the second variable.
 
 ```go
-nums := make([]int, 3)
-for i := range nums {
-  nums[i] = i * i
+func main() {
+	nums := []int{11, 22, 33, 44}
+	
+	for i := range nums {
+		fmt.Println(i) // 0 1 2 3
+	}
+	
+	for _, v := range nums {
+		fmt.Println(v) // 11 22 33 44
+	}
 }
-for _, value := range nums {
-  fmt.Printf("%d\n", value)
-}
-/*
-0
-1
-4
-*/
 ```
