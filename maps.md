@@ -52,21 +52,34 @@ var m = map[string]Vertex{
 }
 ```
 
-### Mutating mags
+## Mutating maps
 
 ```go
 m := make(map[string]int)
+```
 
+Insert / update element:
+
+```go
 m["age"] = 16
 fmt.Println(m["age"]) // 16
 
 m["age"] = 21
 fmt.Println(m["age"]) // 21
+fmt.Println(m["some"]) // 0
+```
 
+Test that a key is present with a *two-value assignment*:
+
+```go
 // If key is in m, ok is true. 
 v, ok := m["age"]
 fmt.Println("The value:", v, "Present?", ok) // The value: 21 Present? true
+```
 
+Delete element:
+
+```go
 delete(m, "age")
 fmt.Println(m["age"]) // 0
 
