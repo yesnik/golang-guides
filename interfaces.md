@@ -7,26 +7,30 @@ A type implements an interface *by implementing its methods*. There is *no expli
 Implicit interfaces decouple the definition of an interface from its implementation, which could then appear in any package without prearrangement.
 
 ```go
-type Questionable interface {
-	AddQuestionMark() string
+import "fmt"
+
+type Info interface {
+	GetInfo()
 }
 
-type Word struct {
-	W string
+type Hero struct {
+	Name string
 }
 
-// This method means type Word implements the interface Questionable,
+// This method means type Hero implements the interface Info,
 // but we don't need to explicitly declare that it does so.
-func (w Word) AddQuestionMark() string {
-	return w.W + "?"
+func (h Hero) GetInfo() {
+	fmt.Println("Name: " + h.Name)
 }
 
 func main() {
-  // A value of interface type can hold any value that implements those methods
-	var leo Questionable = Word{"leo"}
-	fmt.Println(leo.AddQuestionMark()) // leo?
+	var i Info = Hero{"Robocop"}
+	i.GetInfo() // Name: Robocop
 }
 ```
+
+Below `v` is a `Vertex` (not `*Vertex`) and does NOT implement `Abser` interface. There will be an error:
+
 ```go
 
 import (
