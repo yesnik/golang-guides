@@ -40,6 +40,26 @@ func main() {
 }
 ```
 
+Here we add `Up()` method to the type `MyString`:
+
+```go
+import (
+	"fmt"
+	"strings"
+)
+
+type MyString string
+
+func (a MyString) Up() string {
+	return strings.ToUpper(string(a))
+}
+
+func main() {
+	s := MyString("Leo")
+	fmt.Println(s.Up()) // LEO
+}
+```
+
 ## Declare a method on non-struct types
 
 We can declare a method on non-struct types.
