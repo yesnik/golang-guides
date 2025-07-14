@@ -78,3 +78,49 @@ func main() {
 	fmt.Println(a.Abs()) // 5
 }
 ```
+
+## Interface values
+
+Under the hood, interface values can be thought of as a tuple of a value and a concrete type:
+
+```
+(value, type)
+```
+
+An interface value holds a value of a specific underlying concrete type.
+
+Calling a method on an interface value executes the method of the same name on its underlying type.
+
+```go
+type Shape interface {
+	getArea()
+}
+
+type Square struct {
+	A int
+}
+
+func (square Square) getArea() {
+	fmt.Println(square.A * square.A)
+}
+
+
+type Rectangle struct {
+	A, B int
+}
+
+func (rectangle Rectangle) getArea() {
+	fmt.Println(rectangle.A * rectangle.B)
+}
+
+
+func main() {
+	var square Shape
+	square = Square{2}
+	square.getArea() // 4
+	
+	var rectangle Shape
+	rectangle = Rectangle{2, 3}
+	rectangle.getArea() // 6
+}
+```
