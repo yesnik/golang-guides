@@ -124,3 +124,36 @@ func main() {
 	rectangle.getArea() // 6
 }
 ```
+
+### Interface values with nil underlying values
+
+If the concrete value inside the interface itself is nil, the method will be called with a nil receiver.
+
+```go
+type Flyable interface {
+	Fly()
+}
+
+type Hero struct {
+	Name string
+}
+
+func (hero *Hero) Fly() {
+	if hero == nil {
+		fmt.Println("Can't fly - Hero is <nil>")
+		return
+	}
+	fmt.Println(hero.Name + " is flying")
+}
+
+func main() {
+	var flyablePerson Flyable
+	var hero *Hero
+	
+	flyablePerson = hero
+	flyablePerson.Fly() // Can't fly - Hero is <nil>
+	
+	flyablePerson = &Hero{"Superman"}
+	flyablePerson.Fly() // Superman is flying
+}
+```
