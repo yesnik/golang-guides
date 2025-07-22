@@ -236,3 +236,26 @@ func main() {
 	fmt.Println(f)
 }
 ```
+
+## Type switches
+
+*A type switch* is a construct that permits several type assertions in series.
+
+```go
+func do(i interface{}) {
+	switch v := i.(type) {
+	case int:
+		fmt.Printf("Twice %v is %v\n", v, v*2)
+	case string:
+		fmt.Printf("%q is %v bytes long\n", v, len(v))
+	default:
+		fmt.Printf("Unknown type %T!\n", v)
+	}
+}
+
+func main() {
+	do(18) // Twice 18 is 36
+	do("hello") // "hello" is 5 bytes long
+	do(true) // Unknown type bool!
+}
+```
