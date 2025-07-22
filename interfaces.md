@@ -157,3 +157,82 @@ func main() {
 	flyablePerson.Fly() // Superman is flying
 }
 ```
+
+A nil interface value holds neither value nor concrete type.
+
+Calling a method on a nil interface is a run-time error because there is no type inside the interface tuple to indicate which concrete method to call.
+
+```go
+type I interface {
+	M()
+}
+
+func main() {
+	var i I
+	i.M() // panic: runtime error: invalid memory address or nil pointer dereference
+              // [signal SIGSEGV: segmentation violation code=0x1 addr=0x0 pc=0x477970]
+}
+```
+
+## The empty interface
+
+The interface type that specifies zero methods is known as the *empty interface*:
+```go
+interface{}
+```
+
+An empty interface may hold values of any type. (Every type implements at least zero methods.)
+
+Empty interfaces are used by code that handles values of unknown type. 
+For example, `fmt.Print` takes any number of arguments of type `interface{}`.
+
+```go
+func main() {
+	var i interface{}
+	describe(i) // (<nil>, <nil>)
+
+	i = 18
+	describe(i) // (18, int)
+
+	i = "hey"
+	describe(i) // (hey, string)
+}
+
+func describe(i interface{}) {
+	fmt.Printf("(%v, %T)\n", i, i)
+}
+```
+
+## Type assertions
+
+```go
+t := i.(T)
+```
+
+This statement asserts that the interface value i holds the concrete type T and assigns the underlying T value to the variable t.
+
+If `i` does not hold a `T`, the statement will trigger a panic.
+
+To test whether an interface value holds a specific type, a type assertion can return two values: the underlying value and a boolean value that reports whether the assertion succeeded.
+
+```go
+t, ok := i.(T)
+```
+
+```go
+func main() {
+	var i interface{} = "hello"
+
+	s := i.(string)
+	fmt.Println(s) // hello
+
+	s, ok := i.(string)
+	fmt.Println(s, ok) // hello true
+
+	f, ok := i.(float64)
+	fmt.Println(f, ok) // 0 false
+
+	f = i.(float64) // panic
+	fmt.Println(f)
+}
+```
