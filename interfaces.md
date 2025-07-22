@@ -259,3 +259,35 @@ func main() {
 	do(true) // Unknown type bool!
 }
 ```
+
+## Stringers
+
+One of the most ubiquitous interfaces is Stringer defined by the `fmt` package.
+
+```go
+type Stringer interface {
+    String() string
+}
+```
+
+A `Stringer` is a type that can describe itself as a string. The `fmt` package (and many others) look for this interface to print values.
+
+```go
+type Robot struct {
+	Name string
+	Power  int
+}
+
+func (p Robot) String() string {
+	return fmt.Sprintf("%v, power %v", p.Name, p.Power)
+}
+
+func main() {
+	a := Robot{"Robocop", 25}
+	fmt.Println(a) // Robocop, power 25
+	
+	b := Robot{"Power", 50}
+	fmt.Println(b) // Power, power 50
+}
+```
+
