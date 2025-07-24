@@ -1,5 +1,6 @@
 # Type parameters
 
+Starting with version 1.18, Go has added support for **generics**, also known as **type parameters**.
 Go functions can be written to work on multiple types using type parameters. The type parameters of a function appear between brackets, before the function's arguments.
 
 ```go
