@@ -4,17 +4,21 @@
 
 1. File `hello.go`:
     ```go
+    // Every Go file has to begin with a package clause
     package main
 
+    // Go files must import	only the packages they reference
     import "fmt"
-
+    
+    //  Go	looks for a function named "main" to run first
     func main() {
         fmt.Println("Hello")
     }
     ```
-2. We can run our program: `go run hello.go`
-3. Also we can build binary file: `go build hello.go`
-4. Run binary file: `./hello`
+2. Format the code: `go fmt hello.go`
+3. Run the program: `go run hello.go`
+4. Build binary file: `go build hello.go`
+5. Run binary file: `./hello`
 
 ## Example 2
 
