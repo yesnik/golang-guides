@@ -54,3 +54,12 @@ func main() {
 }
 ```
 
+## Declared variables
+
+All declared variables must be used in your program. If you remove the code that uses a variable, you must also remove the declaration.
+
+```go
+func main() {
+	a := 5 // Error: declared and not used: a
+}
+```
