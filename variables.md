@@ -15,10 +15,11 @@ func main() {
 
 ## Variables with initializers
 
-If an initializer is present, the type can be omitted; the variable will take the type of the initializer.
+We can use the `var` keyword with type inference and initializer.
+Go can infer the type of the variable from the initial value assigned. In this case, the type can be omitted:
 
 ```go
-var a, b int = 1, 2
+var a = 1 // Go infers 'a' is of type int
 
 func main() {
 	var active, name = true, "Kenny"
