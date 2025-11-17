@@ -23,7 +23,7 @@ var a = 1 // Go infers 'a' is of type int
 
 func main() {
 	var active, name = true, "Kenny"
-	fmt.Println(a, b, active, name) // Output: 1 2 true Kenny
+	fmt.Println(a, active, name) // Output: 1 true Kenny
 }
 ```
 
