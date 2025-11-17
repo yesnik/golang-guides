@@ -36,6 +36,8 @@ Inside a function, the `:=` short assignment statement can be used in place of a
 
 Outside a function, every statement begins with a keyword (var, func, and so on) and so the `:=` construct is not available.
 
+Variables can only be assigned values of the same type.
+
 ```go
 x := 1 // Syntax error: non-declaration statement outside function body
 var y = 1 // No error
@@ -43,10 +45,12 @@ var y = 1 // No error
 func main() {
 	var a, b int = 1, 2
 	c := 3
+	c = 4
+	c = "Hi" // Error: cannot use "Hi" (untyped string constant) as int value in assignment
 	
 	active, name := true, "John"
 
-	fmt.Println(a, b, c, active, name) // Output: 1 2 3 true John
+	fmt.Println(a, b, c, active, name) // Output: 1 2 4 true John
 }
 ```
 
