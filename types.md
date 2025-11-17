@@ -6,10 +6,18 @@
 - 11 built-in integer numeric types:
     - `int8`, `uint8` (alias `byte`)
     - `int16`, `uint16` 
-    - `int32`, `uint32` (alias `rune`, it represents a Unicode code point) 
+    - `int32`, `uint32` (alias `rune`, it represents a Unicode code point)
+        ```go
+		fmt.Println('A') // 65 
+	    fmt.Println('a') // 97
+        fmt.Println(reflect.TypeOf('A')) // int32
+        ```
     - `int64`, `uint64`
     - `int`, `uint`, `uintptr`.
-- 2 built-in floating-point numeric types: `float32`, `float64`.
+- 2 built-in floating-point numeric types: `float32`, `float64`:
+    ```go
+    fmt.Println(reflect.TypeOf(1.5)) // float64
+    ```
 - 2 built-in complex numeric types: `complex64`, `complex128`.
 - built-in string type: `string`.
 
