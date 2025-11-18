@@ -149,6 +149,29 @@ fmt.Println(reflect.TypeOf(age)) // int
 fmt.Println(reflect.TypeOf(float64(age))) // float64 - Type is changed!
 ```
 
+### For math operations
+
+```go
+var n int = 2
+var f float64 = 2.5;
+
+fmt.Println(n * f) // Error: invalid operation: n * f (mismatched types int and float64)
+fmt.Println(float64(n) * f) // 5
+
+fmt.Println(n + f) // Error: invalid operation: n + f (mismatched types int and float64)
+fmt.Println(float64(n) + f) // 5
+```
+
+### For comparisons
+
+```go
+var n int = 2
+var f float64 = 2.5;
+
+fmt.Println(n < f) // Error: invalid operation: n < f (mismatched types int and float64)
+fmt.Println(float64(n) < f) // true
+```
+
 ## Type inference
 
 When the right hand side of the declaration is typed, the new variable is of that same type:
