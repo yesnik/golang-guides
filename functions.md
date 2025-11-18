@@ -24,6 +24,25 @@ func main() {
 	fmt.Println(a, b, c) // Output: three two one
 }
 ```
+## Ignore the error with the blank indentifier
+
+`_` is a blank identifier.
+
+```go
+import (
+	"fmt"
+	"bufio"
+	"os"
+)
+
+func main() {
+	filePath := "file.txt" // Replace with your file path
+
+	content, _ := os.ReadFile(filePath)
+
+	fmt.Printf("File content:\n%s\n", content)
+}
+```
 
 ## Named return values
 
