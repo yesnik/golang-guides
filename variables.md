@@ -1,5 +1,7 @@
 # Variables
 
+A **variable** is a piece of storage that can contain values of a specified type.
+
 ## `var` statement
 
 The `var` statement declares a list of variables, the type is last. A `var` statement can be at package or function level.
