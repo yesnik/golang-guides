@@ -19,7 +19,7 @@
     fmt.Println(reflect.TypeOf(1.5)) // float64
     ```
 - 2 built-in complex numeric types: `complex64`, `complex128`.
-- built-in string type: `string`.
+- `string` - a series of bytes that usually represent text characters.
 
 ### Notes
 
