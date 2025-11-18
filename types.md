@@ -172,6 +172,16 @@ fmt.Println(n < f) // Error: invalid operation: n < f (mismatched types int and 
 fmt.Println(float64(n) < f) // true
 ```
 
+### Conversion can change result value
+
+For example, `float64` variables can store fractional values, but `int` variables can't. 
+When we convert a `float64` to an `int`, the fractional portion is dropped.
+
+```go
+var height float64 = 3.95;
+fmt.Println(int(height)) // 3
+```
+
 ## Type inference
 
 When the right hand side of the declaration is typed, the new variable is of that same type:
