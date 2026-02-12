@@ -63,8 +63,9 @@ The new variable names are treated as a declaration, and the existing names are 
 
 ```go
 a := 1
-b, c := 2, 3
-a, c := 4, 5 // Error: no new variables on left side of :=
+a, b := 2, 3
+a, c := 4, 5 
+a, c := 6, 7 // no new variables on left side of :=
 ```
 
 ## Declared variables
