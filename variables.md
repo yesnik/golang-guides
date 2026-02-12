@@ -56,6 +56,17 @@ func main() {
 }
 ```
 
+### Only one variable in a short variable declaration has to be new
+
+As long as at least one variable name in a short variable declaration is new, it's allowed. 
+The new variable names are treated as a declaration, and the existing names are treated as an assignment.
+
+```go
+a := 1
+b, c := 2, 3
+a, c := 4, 5 // Error: no new variables on left side of :=
+```
+
 ## Declared variables
 
 All declared variables must be used in your program. If you remove the code that uses a variable, you must also remove the declaration.
