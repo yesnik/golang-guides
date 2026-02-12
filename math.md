@@ -10,3 +10,17 @@ Docs: https://pkg.go.dev/math
 - `math.Pow(2, 3) // 8`
 - `math.Round(5.4) // 5`
 - `math.Sqrt(81) // 9`
+
+## `math/rand`
+
+```go
+import (
+	"fmt"
+	"math/rand"
+)
+
+func main() {
+	target := rand.Intn(3) // It will generate number from 0 to 2
+	fmt.Println(target)
+}
+```
