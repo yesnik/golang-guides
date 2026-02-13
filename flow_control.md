@@ -59,6 +59,16 @@ fmt.Println(x) // Error: undefined: x
 fmt.Println(y) // Error: undefined: y
 ```
 
+Also as with conditionals, any variable declared *before* the loop will still be in scope within the loop's control statements and block, and will still be in scope after the loop exits.
+
+```go
+var i int // Declared outside the loop
+for i = 0; i <= 2; i++ {
+  fmt.Println(i) // 0 1 2 (Still in scope)
+}
+fmt.Println(i) // 3 (Still in scope)
+```
+
 ## if / else
 
 Go's `if` statements are like its `for` loops; the expression need not be surrounded by parentheses `( )` but the braces `{ }` are required.
