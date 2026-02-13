@@ -50,7 +50,7 @@ func main() {
 
 ## Ignore the error with the blank indentifier
 
-`_` is a blank identifier.
+The blank identifier `_` can be used in place of any variable in any assignment statement.
 
 ```go
 import (
