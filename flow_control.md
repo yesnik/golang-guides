@@ -46,6 +46,19 @@ for {
 }
 ```
 
+### Scope for a loop
+
+The scope of any variables declared within a loop's block is limited to that block. The init statement, condition expression, and post statement can be considered part of that scope as well.
+
+```go
+for x := 1; x <= 3; x++ {
+  y := x + 1
+  fmt.Println(x, y)
+}
+fmt.Println(x) // Error: undefined: x
+fmt.Println(y) // Error: undefined: y
+```
+
 ## if / else
 
 Go's `if` statements are like its `for` loops; the expression need not be surrounded by parentheses `( )` but the braces `{ }` are required.
