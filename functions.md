@@ -12,6 +12,8 @@ func add(a, b int) int {
 
 ## A function can return any number of results
 
+Go allows multiple return values from a function or method call.
+
 This function returns 3 strings:
 
 ```go
@@ -24,6 +26,28 @@ func main() {
 	fmt.Println(a, b, c) // Output: three two one
 }
 ```
+
+One common use of multiple return values is to return the function's main result, and then a second value indicating whether there was an error.
+
+```go
+import (
+	"bufio"
+	"fmt"
+	"log"
+	"os"
+)
+
+func main() {
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Print("Type something: ")
+	input, err := reader.ReadString('\n')
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println(input)
+}
+```
+
 ## Ignore the error with the blank indentifier
 
 `_` is a blank identifier.
