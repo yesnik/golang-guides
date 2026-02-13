@@ -46,6 +46,33 @@ for {
 }
 ```
 
+### `continue` keyword
+
+The `continue` immediately skips to the next iteration of a loop, without running any further code in the loop block.
+
+```go
+for x := 0; x <= 3; x++ {
+  if x < 3 {
+    continue
+  }
+  fmt.Println(x)
+}
+```
+
+### `break` keyword
+
+`break` immediately breaks out of a loop. No further code within the loop block is executed, and no further iterations are run. Execution
+moves to the first statement following the loop.
+
+```go
+for x := 0; x <= 3; x++ {
+  if x == 2 {
+    break
+  }
+  fmt.Println(x) // Prints: 0 1
+}
+```
+
 ### Scope for a loop
 
 The scope of any variables declared within a loop's block is limited to that block. The init statement, condition expression, and post statement can be considered part of that scope as well.
