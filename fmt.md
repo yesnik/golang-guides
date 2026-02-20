@@ -16,6 +16,7 @@ fmt.Printf("An int: %d\n", 5) // An int: 5
 fmt.Printf("A string: %s\n", "hello") // A string: hello
 fmt.Printf("A boolean: %t\n", true) // A boolean: true
 fmt.Printf("Values: %v %v %v\n", "Hey", 111, 2.5) // Values: Hey 111 2.5
+fmt.Printf("Values: %#v %#v %#v\n", "\n", "\t", "") // Values: "\n" "\t" ""
 fmt.Printf("Types: %T %T %T\n", 2.3, "hey", false) // Types: float64 string bool
 fmt.Printf("Percent sign: 100%%") // Percent sign: 100%
 ```
