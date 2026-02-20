@@ -2,6 +2,16 @@
 
 [Docs](https://pkg.go.dev/fmt)
 
+## fmt.Errorf
+
+It formats according to a format specifier and returns the string as a value that satisfies error.
+
+```go
+err := fmt.Errorf("Value %.2f is invalid", -2.33)
+fmt.Println(err.Error()) // Value -2.33 is invalid
+fmt.Println(err) // Value -2.33 is invalid
+```
+
 ## fmt.Printf
 
 ```go
