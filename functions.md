@@ -1,5 +1,20 @@
 # Functions
 
+A parameter is a variable, local to a function, whose value is set when the function is called.
+
+When the function is run, each parameter will be set to *a copy of the value* in the corresponding argument. 
+Those parameter values are then used within the code in the function block.
+
+```go
+func repeatLine(line string, times int) {
+	for i := 0; i < times; i++ {
+		fmt.Println(line)
+	}
+}
+
+repeatLine("Hello", 100)
+```
+
 ## Omit the type
 
 In this example, we shortened `a int, b int` to `a, b int`:
