@@ -25,6 +25,28 @@ func add(a, b int) int {
 }
 ```
 
+## Variable scope
+
+Variables declared outside a function block will be in scope within that block. 
+That means we can declare a variable at the package level, and access it within any function in that package.
+
+```go
+import (
+	"fmt"
+)
+
+var metersPerLiter float64
+
+func paintNeeded(width float64, height float64) float64 {
+	return width * height / metersPerLiter
+}
+
+func main() {
+	metersPerLiter = 10.5
+	fmt.Printf("%.2f liters needed\n", paintNeeded(4.3, 3.5))
+}
+```
+
 ## A function can return any number of results
 
 Go allows multiple return values from a function or method call.
