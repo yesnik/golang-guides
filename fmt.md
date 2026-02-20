@@ -18,7 +18,9 @@ fmt.Printf("A boolean: %t\n", true) // A boolean: true
 fmt.Printf("Values: %v %v %v\n", "Hey", 111, 2.5) // Values: Hey 111 2.5
 fmt.Printf("Values: %#v %#v %#v\n", "\n", "\t", "") // Values: "\n" "\t" ""
 fmt.Printf("Types: %T %T %T\n", 2.3, "hey", false) // Types: float64 string bool
-fmt.Printf("Percent sign: 100%%") // Percent sign: 100%
+fmt.Printf("Percent sign: 100%%\n") // Percent sign: 100%
+
+fmt.Printf("%12s | %2d\n", "Book", 95) //         Book | 95
 ```
 
 ## fmt.Sprintf
