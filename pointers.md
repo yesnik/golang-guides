@@ -17,6 +17,34 @@ fmt.Println(*p) // 5 - get value of `x` through a pointer
 fmt.Println(x) // 7
 ```
 
+## Pointer types
+
+The type of a pointer is written with a `*` symbol, followed by the type of the variable the pointer points to. 
+
+The type of a pointer to an `int` variable, for example, would be written `*int` ("pointer to int").
+
+We can use the `reflect.TypeOf` function to show us the types of our pointers:
+
+```go
+var myInt int
+var myIntPointer *int
+myIntPointer = &myInt
+fmt.Println(myIntPointer) // 0xc00000a0d8
+fmt.Println(reflect.TypeOf(myIntPointer)) // *int
+
+var myFloat float64
+var myFloatPointer *float64
+myFloatPointer = &myFloat
+fmt.Println(myFloatPointer) // 0xc00000a100
+fmt.Println(reflect.TypeOf(myFloatPointer)) // *float64
+
+var myBool bool
+var myBoolPointer *bool
+myBoolPointer = &myBool
+fmt.Println(myBoolPointer) // 0xc00000a108
+fmt.Println(reflect.TypeOf(myBoolPointer)) // *bool
+```
+
 ## Pointers to structs
 
 Struct fields can be accessed through a *struct pointer*.
