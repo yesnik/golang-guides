@@ -21,7 +21,7 @@ myInt := 3
 myIntPointer := &myInt
 // Print the pointer itself
 fmt.Println(myIntPointer) // 0xc00008c0b0
-// Printe the value at the pointer
+// Print the value at the pointer
 fmt.Println(*myIntPointer) // 3
 ```
 
