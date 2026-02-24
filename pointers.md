@@ -32,6 +32,30 @@ fmt.Println(*myIntPointer) // 4
 fmt.Println(myInt) // 4
 ```
 
+## Function can return pointer
+
+```go
+func createIntPointer(num int) *int {
+	return &num
+}
+
+var myIntPointer *int = createIntPointer(5)
+// Print the value at the pointer
+fmt.Println(*myIntPointer) // 5
+```
+
+## Function argument can be a pointer
+
+```go
+func printPointer(num *int) {
+	// Print the value at the pointer that gets passed in
+	fmt.Println(*num)
+}
+
+var myInt int = 5
+printPointer(&myInt) // 5
+```
+
 ## Pointer types
 
 The type of a pointer is written with a `*` symbol, followed by the type of the variable the pointer points to. 
