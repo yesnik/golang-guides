@@ -59,7 +59,8 @@ func manyReturns() (string, int, bool) {
 }
 
 func main() {
-	manyReturns()
+	myString, myInt, myBool := manyReturns()
+	fmt.Println(myString, myInt, myBool) // Hi 5 true
 }
 ```
 
