@@ -45,6 +45,14 @@ fmt.Println(myBoolPointer) // 0xc00000a108
 fmt.Println(reflect.TypeOf(myBoolPointer)) // *bool
 ```
 
+A short declaration for a pointer variable:
+
+```go
+var myBool bool
+myBoolPointer := &myBool
+fmt.Println(myBoolPointer) // 0xc00000a108
+```
+
 ## Pointers to structs
 
 Struct fields can be accessed through a *struct pointer*.
