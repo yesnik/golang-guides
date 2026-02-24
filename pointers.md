@@ -23,6 +23,13 @@ myIntPointer := &myInt
 fmt.Println(myIntPointer) // 0xc00008c0b0
 // Print the value at the pointer
 fmt.Println(*myIntPointer) // 3
+
+// Assign a new value to the variable at the pointer (myInt)
+*myIntPointer = 4
+// Print the value of the variable at the pointer
+fmt.Println(*myIntPointer) // 4
+// Print the variable's value directly
+fmt.Println(myInt) // 4
 ```
 
 ## Pointer types
