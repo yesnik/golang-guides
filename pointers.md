@@ -16,6 +16,14 @@ fmt.Println(*p) // 5 - get value of `x` through a pointer
 *p = 7 // set value to `x` through a pointer
 fmt.Println(x) // 7
 ```
+```go
+myInt := 3
+myIntPointer := &myInt
+// Print the pointer itself
+fmt.Println(myIntPointer) // 0xc00008c0b0
+// Printe the value at the pointer
+fmt.Println(*myIntPointer) // 3
+```
 
 ## Pointer types
 
