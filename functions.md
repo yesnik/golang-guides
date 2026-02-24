@@ -51,16 +51,15 @@ func main() {
 
 Go allows multiple return values from a function or method call.
 
-This function returns 3 strings:
+This function returns 3 values:
 
 ```go
-func swap(a, b, c string) (string, string, string) {
-	return c, b, a
+func manyReturns() (string, int, bool) {
+	return "Hi", 5, true
 }
 
 func main() {
-	a, b, c := swap("one", "two", "three")
-	fmt.Println(a, b, c) // Output: three two one
+	manyReturns()
 }
 ```
 
