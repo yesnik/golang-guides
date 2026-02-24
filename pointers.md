@@ -1,6 +1,6 @@
 # Pointers
 
-A *pointer* is a variable that stores the address of another variable.
+A *pointer* is a variable that stores the address of another variable. It *points* to the location where the variable can be found.
 
 - `&` operator generates a pointer of the variable.
 - `*` - is the *dereference operator* / *indirection operator*. It shows the pointer's underlying value. 
