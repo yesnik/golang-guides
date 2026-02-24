@@ -108,7 +108,26 @@ func main() {
 ## Named return values
 
 Go's return values may be named. If so, they are treated as variables defined at the top of the function.
-Here we can see a *"naked" return*. It returns the named return values.
+
+The main purpose of named return values is as documentation for programmers reading the code.
+
+```go
+func floatParts(num float64) (integerPart int, fractionalPart float64) {
+	integerNum := math.Floor(num)
+	
+	return int(integerNum), num - integerNum
+}
+
+func main() {
+	intPart, remainter := floatParts(3.14)
+	fmt.Println(intPart, remainter) // 3 0.14000000000000012
+}
+```
+
+### "naked" return 
+
+It returns the named return values.
+
 ```go
 func split(sum int) (a, b int) {
 	a = sum - 5
