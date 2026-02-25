@@ -47,13 +47,14 @@ fmt.Println(*myIntPointer) // 5
 ## Function argument can be a pointer
 
 ```go
-func printPointer(num *int) {
-	// Print the value at the pointer that gets passed in
-	fmt.Println(*num)
+func negate(myBool *bool) {
+	*myBool = !*myBool
 }
 
-var myInt int = 5
-printPointer(&myInt) // 5
+value := true
+fmt.Println("value before: ", value) // value before:  true
+negate(&value)
+fmt.Println("value after: ", value) // value after:  false
 ```
 
 ## Pointer types
