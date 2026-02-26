@@ -1,5 +1,7 @@
 # Arrays
 
+An **array** is a collection of values that all share the same type.
+
 `var x [3]int` - declare a variable `x` as an array of 3 integers.
 
 An array's length is part of its type, so arrays *cannot be resized*.
