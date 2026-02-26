@@ -5,4 +5,6 @@
 - `go run hello.go` - run program
 - `go build hello.go` - build executable file `hello`
 - `go env GOPATH` - show workspace path
+- `go install` - command without the `@version` syntax is for installing from the current directory
+- `go install module@version` - download and install from a remote repository
 - `go fmt hello.go` - format Go source code. Oh, *it uses tabs*, not spaces.
