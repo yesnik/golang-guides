@@ -18,7 +18,14 @@ x[0] = "Good"
 x[1] = "morning"
 fmt.Println(x[0], x[1]) // Good morning
 fmt.Println(x) // [Good morning]
+```
 
+## Array literals
+
+If you know in advance what values an array should hold, you can initialize the array with those values using an array literal. 
+An array literal starts just like an array type, with the number of elements it will hold in square brackets, followed by the type of its elements.
+
+```go
 nums := [3]int{2, 3, 5}
 fmt.Println(nums) // [2 3 5]
 ```
