@@ -2,7 +2,11 @@
 
 An **array** is a collection of values that all share the same type.
 
-`var x [3]int` - declare a variable `x` as an array of 3 integers.
+To declare a variable that holds an array, you need to specify the number of elements it holds in square brackets (`[]`), followed by the type of elements the array holds:
+
+```go
+var x [3]int // declare a variable `x` as an array of 3 integers.
+```
 
 An array's length is part of its type, so arrays *cannot be resized*.
 
