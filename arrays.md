@@ -58,3 +58,13 @@ notes := [7]string{"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"}
 
 fmt.Println(len(notes)) // 7
 ```
+
+## Looping over arrays with `for ... range`
+
+```go
+notes := [7]string{"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"}
+
+for index, value := range notes {
+  fmt.Println(index, value)
+}
+```
