@@ -33,6 +33,15 @@ fmt.Printf("Percent sign: 100%%\n") // Percent sign: 100%
 fmt.Printf("%12s | %2d\n", "Book", 95) //         Book | 95
 ```
 
+## fmt.Println
+
+Functions in the `fmt` package know how to handle arrays.
+
+```go
+numbers := [3]int{1, 2}
+fmt.Println(numbers) // [1 2 0]
+```
+
 ## fmt.Sprintf
 
 It works just like `fmt.Printf`, except that it returns a formatted string instead of printing it.
