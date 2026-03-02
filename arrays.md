@@ -29,3 +29,24 @@ An array literal starts just like an array type, with the number of elements it 
 nums := [3]int{2, 3, 5}
 fmt.Println(nums) // [2 3 5]
 ```
+
+## Accessing array elements
+
+```go
+numbers := [3]int{11, 22, 33}
+
+for i := 0; i < 3; i++ {
+  fmt.Println(numbers[i])
+}
+```
+
+Arrays hold a specific number of elements. Trying to access an index that is outside the array will cause a **panic**, 
+an error that occurs while your program is running (as opposed to when it's compiling).
+
+```go
+numbers := [2]int{11, 22}
+
+for i := 0; i < 3; i++ {
+  fmt.Println(numbers[i]) // panic: runtime error: index out of range [2] with length 2
+}
+```
