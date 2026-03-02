@@ -50,3 +50,11 @@ for i := 0; i < 3; i++ {
   fmt.Println(numbers[i]) // panic: runtime error: index out of range [2] with length 2
 }
 ```
+
+## `len()` function
+
+```go
+notes := [7]string{"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"}
+
+fmt.Println(len(notes)) // 7
+```
