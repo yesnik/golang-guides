@@ -26,11 +26,19 @@ fmt.Printf("An int: %d\n", 5) // An int: 5
 fmt.Printf("A string: %s\n", "hello") // A string: hello
 fmt.Printf("A boolean: %t\n", true) // A boolean: true
 fmt.Printf("Values: %v %v %v\n", "Hey", 111, 2.5) // Values: Hey 111 2.5
-fmt.Printf("Values: %#v %#v %#v\n", "\n", "\t", "") // Values: "\n" "\t" ""
 fmt.Printf("Types: %T %T %T\n", 2.3, "hey", false) // Types: float64 string bool
 fmt.Printf("Percent sign: 100%%\n") // Percent sign: 100%
 
 fmt.Printf("%12s | %2d\n", "Book", 95) //         Book | 95
+```
+
+The `%#v` verb used by the `Printf` and `Sprintf` functions, which formats values as they'd appear in Go code:
+
+```go
+numbers := [3]int{1, 2}
+fmt.Printf("%#v\n", numbers) // [3]int{1, 2, 0}
+
+fmt.Printf("Values: %#v %#v %#v\n", "\n", "\t", "") // Values: "\n" "\t" ""
 ```
 
 ## fmt.Println
