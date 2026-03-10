@@ -17,6 +17,13 @@ fmt.Println(letters) // [A B]
 
 A slice does not store any data, it just describes a section of an underlying array.
 
+Every slice is built on top of an *underlying array*. 
+It's the underlying array that actually holds the slice's data; 
+the slice is merely *a view* into some (or all) of the array's elements.
+
+When you use the `make` function or a slice literal to create a slice, the underlying array is created for you automatically (and you can't access it, except through the slice).
+But you can also create the array yourself, and then create a slice based on it with the slice operator.
+
 Changing the elements of a slice modifies the corresponding elements of its underlying array.
 
 Other slices that share the same underlying array will see those changes.
