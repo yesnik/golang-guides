@@ -255,3 +255,25 @@ func printSlice(s []int) {
 	fmt.Printf("%v len=%d cap=%d\n", s, len(s), cap(s))
 }
 ```
+
+When calling `append`, it's conventional to just assign the return value back to the same slice variable you passed to append. 
+You don't need to worry about whether two slices have the same underlying array if you're only storing one slice.
+
+### Different underlying array
+
+When we assign a value to an element of the `s4` slice, we can see the change reflected in `s3`, because `s4` and `s3` happen to share the same underlying array. 
+But the change is not reflected in `s2` or `s1`, because they have a different underlying array.
+
+```go
+s1 := []string{"s1", "s1"}
+s2 := append(s1, "s2", "s2")
+s3 := append(s2, "s3", "s3")
+s4 := append(s3, "s4", "s4")
+
+fmt.Println(s1, s2, s3, s4)
+// [s1 s1] [s1 s1 s2 s2] [s1 s1 s2 s2 s3 s3] [s1 s1 s2 s2 s3 s3 s4 s4]
+s4[0] = "NN"
+
+fmt.Println(s1, s2, s3, s4)
+// [s1 s1] [s1 s1 s2 s2] [NN s1 s2 s2 s3 s3] [NN s1 s2 s2 s3 s3 s4 s4]
+```
