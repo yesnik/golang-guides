@@ -29,16 +29,18 @@ Changing the elements of a slice modifies the corresponding elements of its unde
 Other slices that share the same underlying array will see those changes.
 
 ```go
-letters := [4]string{"A", "B", "C", "D"}
-fmt.Println(letters) // [A B C D]
+letters := [5]string{"A", "B", "C", "D", "E"}
+fmt.Println(letters) // [A B C D E]
 
 a := letters[0:2] // [A B]
-b := letters[1:3] // [B C]
-fmt.Println(a, b) // [A B] [B C]
+b := letters[:2] // [A B]
+c := letters[1:3] // [B C]
+d := letters[2:] // [C D E]
+fmt.Println(a, b, c, d) // [A B] [A B] [B C] [C D E]
 
-b[0] = "ZZZ"
-fmt.Println(a, b) // [A ZZZ] [ZZZ C]
-fmt.Println(letters) // [A ZZZ C D]
+c[0] = "ZZZ"
+fmt.Println(a, c) // [A ZZZ] [ZZZ C]
+fmt.Println(letters) // [A ZZZ C D E]
 ```
 
 ## Slice literals
