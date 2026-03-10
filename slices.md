@@ -24,24 +24,49 @@ the slice is merely *a view* into some (or all) of the array's elements.
 When you use the `make` function or a slice literal to create a slice, the underlying array is created for you automatically (and you can't access it, except through the slice).
 But you can also create the array yourself, and then create a slice based on it with the slice operator.
 
-Changing the elements of a slice modifies the corresponding elements of its underlying array.
+### Change the underlying array
 
-Other slices that share the same underlying array will see those changes.
+If you change the underlying array, those changes will also be visible within the slice:
 
 ```go
 letters := [5]string{"A", "B", "C", "D", "E"}
 fmt.Println(letters) // [A B C D E]
 
-a := letters[0:2] // [A B]
-b := letters[:2] // [A B]
-c := letters[1:3] // [B C]
-d := letters[2:] // [C D E]
-fmt.Println(a, b, c, d) // [A B] [A B] [B C] [C D E]
-
-c[0] = "ZZZ"
-fmt.Println(a, c) // [A ZZZ] [ZZZ C]
-fmt.Println(letters) // [A ZZZ C D E]
+slice := letters[0:3]
+letters[2] = "XXX" // Change an element of the underlying array
+fmt.Println(letters) // [A B XXX D E]
+fmt.Println(slice) // [A B XXX]
 ```
+
+If multiple slices point to the same underlying array, a change to the array's elements will be visible in all the slices:
+
+```go
+letters := [5]string{"A", "B", "C", "D", "E"}
+fmt.Println(letters) // [A B C D E]
+
+sliceOne := letters[:3]
+sliceTwo := letters[2:]
+letters[2] = "XXX" // Change an element of the slice
+fmt.Println(letters) // [A B XXX D E]
+fmt.Println(sliceOne) // [A B XXX]
+fmt.Println(sliceTwo) // [XXX D E]
+```
+
+### Change the slice
+
+Assigning a new value to a slice element will change the corresponding element in the underlying array:
+
+```go
+letters := [5]string{"A", "B", "C", "D", "E"}
+fmt.Println(letters) // [A B C D E]
+
+slice := letters[0:3]
+slice[2] = "XXX" // Change an element of the slice
+fmt.Println(letters) // [A B XXX D E]
+fmt.Println(slice) // [A B XXX]
+```
+
+**Note**: With `make` and with slice literals, you never have to work with the underlying array.
 
 ## Slice literals
 
