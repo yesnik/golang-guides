@@ -195,6 +195,20 @@ func greet(name string, notes ...string) string {
 }
 ```
 
+```go
+fmt.Println(inRange(1, 10, -1, 2, 12, 4, 33, 6, 8, 99)) // [2 4 6 8]
+
+func inRange(min float64, max float64, numbers ...float64) []float64 {
+	var result []float64
+	for _, number := range numbers {
+		if number >= min && number <= max {
+			result = append(result, number)
+		}
+	}
+	return result
+}
+```
+
 - The last parameter of a variadic function receives the variadic arguments as a slice.
 - Notice that if we provide no variadic arguments, it’s not an error; the function just receives an empty slice.
 - Only the last parameter in a function definition can be variadic; you can't place it in front of required parameters.
