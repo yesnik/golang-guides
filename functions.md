@@ -169,6 +169,36 @@ func main() {
 }
 ```
 
+## Variadic functions
+
+Some function calls can take as few, or as many, arguments as needed:
+
+```go
+fmt.Println(1)
+fmt.Println(1, 2, 3)
+```
+
+A **variadic function** is one that can be called with a varying number of arguments. 
+To make a function variadic, use an ellipsis `...` before the type of the last (or only) function parameter in the function declaration.
+
+```go
+fmt.Println(greet("Kenny", "Lenny", "Dolly")) // Hello, Kenny Lenny Dolly
+fmt.Println(greet("Kenny")) // Hello, Kenny
+
+func greet(name string, notes ...string) string {
+	out := "Hello, " + name
+
+	for _, note := range notes {
+		out += " " + note
+	}
+	return out
+}
+```
+
+- The last parameter of a variadic function receives the variadic arguments as a slice.
+- Notice that if we provide no variadic arguments, it’s not an error; the function just receives an empty slice.
+- Only the last parameter in a function definition can be variadic; you can't place it in front of required parameters.
+
 ## Function closures
 
 A *closure* is a function value that references variables from outside its body. 
