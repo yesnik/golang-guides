@@ -2,6 +2,17 @@
 
 Package [os](https://pkg.go.dev/os) provides a platform-independent interface to operating system functionality.
 
+## os.Args
+
+`Args` hold the command-line arguments, starting with the program name.
+
+*Example:* `go run myapp.go aa bb cc`
+
+```go
+fmt.Println(os.Args)
+// [C:\Users\kenny\AppData\Local\Temp\go-build3300351132\b001\exe\average2.exe aa bb cc]
+```
+
 ## os.Stat
 
 ### fileInfo.Size()
