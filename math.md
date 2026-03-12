@@ -7,6 +7,7 @@ Docs: https://pkg.go.dev/math
 - `math.Abs(-5) // 5`
 - `math.Ceil(4.01) // 5`
 - `math.Floor(5.99) // 5`
+- `math.Inf(-1)` // `-Inf`, it returns positive infinity if `sign >= 0`, negative infinity if `sign < 0`
 - `math.Pow(2, 3) // 8`
 - `math.Round(5.4) // 5`
 - `math.Sqrt(81) // 9`
