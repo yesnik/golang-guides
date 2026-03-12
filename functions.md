@@ -213,6 +213,25 @@ func inRange(min float64, max float64, numbers ...float64) []float64 {
 - Notice that if we provide no variadic arguments, it’s not an error; the function just receives an empty slice.
 - Only the last parameter in a function definition can be variadic; you can't place it in front of required parameters.
 
+### Use `...` to unpack the slice
+
+When calling a variadic function, simply add an ellipsis `...` following the slice you want to use in place of variadic arguments.
+
+```go
+var numbers []float64
+numbers =  []float64{10, 20, 30}
+
+fmt.Printf("Average: %0.2f\n", average(numbers...))
+
+func average(numbers ...float64) float64 {
+	var sum float64 = 0
+	for _, number := range numbers {
+		sum += number
+	}
+	return sum / float64(len(numbers))
+}
+```
+
 ## Function closures
 
 A *closure* is a function value that references variables from outside its body. 
