@@ -2,6 +2,16 @@
 
 A `map` maps keys to values.
 
+```go
+// Declare a map variable
+var cities map[int]string
+// Create the map
+cities = make(map[int]string)
+
+// Create a map and declare a variable to hold it
+cities := make(map[int]string)
+```
+
 The zero value of a map is `nil`. A `nil` map has no keys, nor can keys be added.
 
 The `make` function returns a map of the given type, initialized and ready for use.
