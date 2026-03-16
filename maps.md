@@ -10,6 +10,10 @@ cities = make(map[int]string)
 
 // Create a map and declare a variable to hold it
 cities := make(map[int]string)
+
+// Map literal
+cities := map[int]string{11: "NY", 22: "NT"}
+fmt.Println(cities) // map[11:NY 22:NT]
 ```
 
 The zero value of a map is `nil`. A `nil` map has no keys, nor can keys be added.
