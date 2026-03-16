@@ -1,6 +1,8 @@
 # Maps
 
-A `map` maps keys to values.
+- A `map` maps keys to values.
+- Whereas arrays and slices can only use integers as indexes, a map can use (almost) any type for keys.
+- All of a map's keys must be the same type, and all the values must be the same type.
 
 ```go
 // Declare a map variable
