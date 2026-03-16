@@ -73,6 +73,9 @@ for index, value := range notes {
 
 ```go
 arr := [3][2]int{{1, 2}, {3, 4}, {5, 6}}
+
+fmt.Printf("%T", arr) // [3][2]int
+
 for _, row := range arr {
   fmt.Println(row)
 }
