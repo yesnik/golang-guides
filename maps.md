@@ -72,7 +72,7 @@ var m = map[string]Vertex{
 m := make(map[string]int)
 ```
 
-Insert / update element:
+### Insert / update element
 
 ```go
 m["age"] = 16
@@ -91,7 +91,7 @@ v, ok := m["age"]
 fmt.Println("The value:", v, "Present?", ok) // The value: 21 Present? true
 ```
 
-Delete element:
+### Delete element
 
 ```go
 delete(m, "age")
