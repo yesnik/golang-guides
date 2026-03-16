@@ -101,3 +101,21 @@ fmt.Println(m["age"]) // 0
 v, ok = m["age"]
 fmt.Println("The value:", v, "Present?", ok) // The value: 0 Present? false
 ```
+
+## Zero values apart from assigned values
+
+Zero values, although useful, can sometimes make it difficult to tell whether a given key has been assigned the zero value, or if it has never been assigned.
+
+To address situations like this, accessing a map key optionally returns a second, `Boolean` value. It will be `true` if the returned value has actually been assigned to the map, 
+or `false` if the returned value just represents the default zero value.
+
+```go
+cities := map[string]int{"NY": 9, "MSK": 13}
+
+fmt.Println(cities["MSK"]) // 13
+
+var londonPopulation int
+var ok bool
+londonPopulation = cities["LO"]
+fmt.Println(londonPopulation, ok) // 0 false
+```
