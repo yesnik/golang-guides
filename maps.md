@@ -119,3 +119,5 @@ var ok bool
 londonPopulation = cities["LO"]
 fmt.Println(londonPopulation, ok) // 0 false
 ```
+
+The Go maintainers refer to this as the *"comma ok idiom"*.
