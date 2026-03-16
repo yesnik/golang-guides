@@ -121,3 +121,10 @@ fmt.Println(londonPopulation, ok) // 0 false
 ```
 
 The Go maintainers refer to this as the *"comma ok idiom"*.
+
+If you only want to test whether a value is present, you can have the value itself ignored by assigning it to the `_` blank identifier.
+
+```go
+_, ok := cities["LA"]
+fmt.Println(ok) // false
+```
