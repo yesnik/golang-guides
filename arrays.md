@@ -68,3 +68,17 @@ for index, value := range notes {
   fmt.Println(index, value)
 }
 ```
+
+## Multidimensional arrays
+
+```go
+arr := [3][2]int{{1, 2}, {3, 4}, {5, 6}}
+for _, row := range arr {
+  fmt.Println(row)
+}
+/*
+[1 2]
+[3 4]
+[5 6]
+*/
+```
