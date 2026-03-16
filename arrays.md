@@ -74,7 +74,7 @@ for index, value := range notes {
 ```go
 arr := [3][2]int{{1, 2}, {3, 4}, {5, 6}}
 
-fmt.Printf("%T", arr) // [3][2]int
+fmt.Printf("%T\n", arr) // [3][2]int
 
 for _, row := range arr {
   fmt.Println(row)
@@ -84,4 +84,11 @@ for _, row := range arr {
 [3 4]
 [5 6]
 */
+```
+
+We can use `[...]` and compiler will set the array's size automatically:
+
+```go
+arr := [...][2]int{{1, 2}, {3, 4}, {5, 6}}
+fmt.Printf("%T\n", arr) // [3][2]int
 ```
