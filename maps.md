@@ -128,3 +128,33 @@ If you only want to test whether a value is present, you can have the value itse
 _, ok := cities["LA"]
 fmt.Println(ok) // false
 ```
+
+## The `for ... range` loop handles maps in random order
+
+The `for...range` loop processes map keys and values in a random order because a *map is an unordered collection of keys and values*. 
+When you use a `for...range` loop with a map, you never know what order you’ll get the map's contents in! 
+Sometimes that's fine, but if you need more consistent ordering, you'll need to write the code for that yourself.
+
+```go
+counts = map[string]int{"Kenny":11, "Jenny": 12, "Lenny": 5, "Some": 111, "Arny": 23}
+
+for name, value := range counts {
+	fmt.Printf("%s: %d\n", name, value)
+}
+```
+
+Solution:
+
+```go
+counts = map[string]int{"Kenny":11, "Jenny": 12, "Lenny": 5, "Some": 111, "Arny": 23}
+
+var names []string
+for name := range counts {
+	names = append(names, name)
+}
+fmt.Println(names) // [Kenny Jenny Lenny Some Arny]
+sort.Strings(names)
+for _, name := range names {
+	fmt.Printf("%s: %d\n", name, counts[name])
+}
+```
