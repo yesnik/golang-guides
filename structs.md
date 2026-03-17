@@ -23,7 +23,8 @@ fmt.Printf("%#v\n", myStruct)
 // struct { name string; population int; active bool }{name:"Moscow", population:6, active:true}
 ```
 
-Also we can define a custom type as struct:
+Also we can define a custom type as struct. 
+Type definitions allow us to create types of our own. They let us create a new defined type that's based on an *underlying type*.
 
 ```go
 type Address struct {
