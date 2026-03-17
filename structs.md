@@ -5,6 +5,26 @@ Any real-world entity which has some set of properties/fields can be represented
 
 Struct fields are accessed using a dot.
 
+We can define a variable as struct:
+
+```go
+var myStruct struct {
+	name string
+	population int
+	active bool
+}
+myStruct = struct {
+	name string
+	population int
+	active bool
+} {"New York", 9, true}
+
+fmt.Printf("%#v\n", myStruct)
+// struct { name string; population int; active bool }{name:"Moscow", population:6, active:true}
+```
+
+Also we can define a custom type as struct:
+
 ```go
 type Address struct {
 	city       string
@@ -24,6 +44,7 @@ func main() {
 	fmt.Println(b.HomeNumber) // 2
 }
 ```
+
 The `type` keyword introduces a new type. 
 It is followed by the name of the type (`Address`) and the keyword `struct` to illustrate that we’re defining a struct. 
 The struct contains a list of various fields inside the curly braces. Each field has a name and a type.
