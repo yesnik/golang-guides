@@ -3,7 +3,7 @@
 A *pointer* is a variable that stores the address of another variable. It *points* to the location where the variable can be found.
 
 - `&` operator generates a pointer of the variable.
-- `*` - is the *dereference operator* / *indirection operator*. It shows the pointer's underlying value. 
+- `*` - is the *dereference operator* / *indirection operator* / *value-at operator*. It shows the pointer's underlying value. 
   When it is used with the pointer variable, then it is known as *dereferencing a pointer*. 
 
 ```go
