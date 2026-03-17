@@ -12,3 +12,4 @@ Being able to use the same code between programs is one of the major reasons pac
 
 If parts of your code are shared between multiple programs, you should consider moving them into packages.
 
+In Go, all files in the same directory must belong to the same package.
