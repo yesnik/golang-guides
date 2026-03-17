@@ -6,6 +6,7 @@ When the function is run, each parameter will be set to *a copy of the value* in
 Those parameter values are then used within the code in the function block.
 
 Go is a **pass-by-value** language. Function parameters receive a copy of the arguments from the function call.
+If a function changes a parameter value, it's changing the *copy*, not the original.
 
 ```go
 func repeatLine(line string, times int) {
