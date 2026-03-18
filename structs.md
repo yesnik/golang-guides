@@ -103,3 +103,38 @@ func main() {
 	fmt.Println(v1, v2, v3, p) // {1 2} {0 3} {0 0} &{4 5}
 }
 ```
+
+## Embedding structs
+
+An inner struct that is stored within an outer struct using an anonymous field is said to be embedded within the outer struct. 
+Fields for an embedded struct are promoted to the outer struct, meaning you can access them as if they belong to the outer struct.
+
+So now that the `Address` struct type is embedded within the `Employee` struct types, you don't have to write out `employee.Address.City`
+to get at the `City` field; you can just write `employee.City`.
+
+```go
+type Address struct {
+	Street string
+	City   string
+	State  string
+	PostalCode string
+}
+
+type Employee struct {
+	Name   string
+	Salary float64
+	Address // <-- Embedded struct here. We omitted attribute name
+}
+
+address := magazine.Address{
+	Street: "333 Saint St",
+	City: "New York",
+	State: "NY",
+	PostalCode: "123123",
+}
+subscriber := magazine.Subscriber{Name: "John Doe"}
+subscriber.Address = address
+
+fmt.Println(subscriber.Address.City) // New York
+fmt.Println(subscriber.City) // New York
+```
