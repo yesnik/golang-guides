@@ -124,7 +124,7 @@ type Address struct {
 type Employee struct {
 	Name   string
 	Salary float64
-	Address // <-- Embedded struct here. We omitted attribute name
+	Address // <-- Embedded struct here. We omitted a field's name
 }
 
 address := magazine.Address{
