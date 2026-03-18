@@ -46,9 +46,10 @@ func main() {
 }
 ```
 
-The `type` keyword introduces a new type. 
-It is followed by the name of the type (`Address`) and the keyword `struct` to illustrate that we’re defining a struct. 
-The struct contains a list of various fields inside the curly braces. Each field has a name and a type.
+- The `type` keyword introduces a new type. 
+- It is followed by the name of the type (`Address`) and the keyword `struct` to illustrate that we're defining a struct. 
+- The struct contains a list of various *fields* inside the curly braces.
+- Each field has a name and a type.
 
 We can also make struct compact by combining the various fields of the same type:
 
