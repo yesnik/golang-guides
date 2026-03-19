@@ -18,6 +18,10 @@ In fact, there's really only one difference: we add one extra parameter, a *rece
     ```go
 	fmt.Println(Gallons(2) < Gallons(3)) // true
 	```
+- A defined type can be used in operations together with literal values:
+    ```go
+	fmt.Println(Gallons(2) + 3) // 5
+    ```
 
 Below, we define a type named `CurrencyName`, with an underlying type of `string`.
 Then, we define a method named `getName`. Because `getName` has a receiver parameter with a type of `CurrencyName`, 
