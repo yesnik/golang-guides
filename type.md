@@ -103,3 +103,5 @@ pointer.pointerMethod() // Method with pointer receiver
 The method named `method` takes a value receiver, but we can call it using both direct values and pointers, because Go autoconverts if needed. 
 
 And the method named `pointerMethod` takes a pointer receiver, but we can call it on both direct values and pointers, because Go will autoconvert if needed.
+
+**Convention**: For consistency, all of our type's methods can take *value* receivers, or they can all take *pointer* receivers, but we should avoid mixing the two. 
