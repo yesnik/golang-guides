@@ -37,3 +37,22 @@ func main() {
 	fmt.Println(result) // Euro
 }
 ```
+
+## Receiver parameter receives a copy
+
+Like any other parameter, a receiver parameter receives a copy of the receiver value. 
+If we make changes to the receiver within a method, we're changing the copy, not the original.
+
+```go
+type Number int
+
+func (n Number) Double() {
+	n *= 2
+}
+
+number := Number(5)
+fmt.Println("Original value:", number) // Original value: 5
+number.Double()
+fmt.Println("Doubled value:", number) // Doubled value: 5
+```
+
