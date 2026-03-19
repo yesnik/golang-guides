@@ -129,3 +129,44 @@ The method named `method` takes a value receiver, but we can call it using both 
 And the method named `pointerMethod` takes a pointer receiver, but we can call it on both direct values and pointers, because Go will autoconvert if needed.
 
 **Convention**: For consistency, all of our type's methods can take *value* receivers, or they can all take *pointer* receivers, but we should avoid mixing the two. 
+
+## Setter methods
+
+- By convention, Go setter methods are usually named in the form `SetX`, where `X` is the thing that you're setting.
+- Setter methods are methods used to set fields or other values within a defined type's underlying value.
+- Setter methods need pointer receivers.
+
+```go
+import (
+	"fmt"
+	"errors"
+	"log"
+)
+
+type Date struct {
+	Year int
+	Month int
+	Day int
+}
+
+// Needs to be a pointer receiver, so original value can be updated
+func (d *Date) SetYear(year int) error {
+	if year < 1 {
+		return errors.New("Invalid year")
+	}
+	d.Year = year
+	return nil
+}
+// ...
+
+func main() {
+	date := Date{}
+	err := date.SetYear(2020)
+	if err != nil {
+		log.Fatal(err)
+	}
+	// ...
+
+	fmt.Println(dat.Year) // 2020
+}
+```
