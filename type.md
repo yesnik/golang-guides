@@ -38,7 +38,9 @@ func main() {
 }
 ```
 
-## Receiver parameter receives a copy
+## Receiver parameter
+
+### A copy of the receiver
 
 Like any other parameter, a receiver parameter receives a copy of the receiver value. 
 If we make changes to the receiver within a method, we're changing the copy, not the original.
@@ -56,7 +58,7 @@ number.Double()
 fmt.Println("Doubled value:", number) // Doubled value: 5
 ```
 
-Use a pointer:
+### A pointer type of the receiver
 
 ```go
 // Change the receiver parameter to a pointer type
@@ -67,6 +69,37 @@ func (n *Number) Double() {
 
 number := Number(5)
 fmt.Println("Original value: ", number) Original value: 5
-number.Double()
+number.Double() // <-- No changes here
 fmt.Println("Doubled value: ", number) Doubled value: 10
 ```
+
+Notice that we didn't have to change the method call at all.
+
+### Go converts "value receiver" <-> "pointer receiver"
+
+When we call a method that requires a *pointer receiver* on a variable with a nonpointer type, 
+Go will automatically convert the receiver to a pointer for you. 
+
+If we call a method requiring a value receiver, Go will automatically get the value at the pointer for you and pass that to the method.
+
+```go
+type MyType string
+
+func (m MyType) method() {
+	fmt.Println("Method with value receiver")
+}
+func (m *MyType) pointerMethod() {
+	fmt.Println("Method with pointer receiver")
+}
+
+value := MyType("value")
+pointer := &value
+value.method() // Method with value receiver
+value.pointerMethod() // Method with pointer receiver
+pointer.method() // Method with value receiver
+pointer.pointerMethod() // Method with pointer receiver
+```
+
+The method named `method` takes a value receiver, but we can call it using both direct values and pointers, because Go autoconverts if needed. 
+
+And the method named `pointerMethod` takes a pointer receiver, but we can call it on both direct values and pointers, because Go will autoconvert if needed.
