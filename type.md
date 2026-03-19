@@ -56,3 +56,17 @@ number.Double()
 fmt.Println("Doubled value:", number) // Doubled value: 5
 ```
 
+Use a pointer:
+
+```go
+// Change the receiver parameter to a pointer type
+func (n *Number) Double() {
+	// Update the value at the pointer
+	*n *= 2
+}
+
+number := Number(5)
+fmt.Println("Original value: ", number) Original value: 5
+number.Double()
+fmt.Println("Doubled value: ", number) Doubled value: 10
+```
