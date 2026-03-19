@@ -38,6 +38,18 @@ func main() {
 }
 ```
 
+### Can't define a method on a globally defined type
+
+You can only define new methods on types that were declared in the current package. 
+Defining a method on a globally defined type like `int` will result in a compile error.
+
+```go
+func (n *int) Display() {
+	fmt.Println(*n)
+}
+// Error: cannot define new methods on non-local type int
+```
+
 ## Receiver parameter
 
 ### A copy of the receiver
