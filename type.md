@@ -18,6 +18,7 @@ we'll be able to call the `getName` method on any `CurrencyName` value.
 Here we can say that `getName` is defined "on" `CurrencyName`.
 
 ```go
+// Define a type with an underlying type of "string"
 type CurrencyName string
 
 // "c" is a receiver parameter name
