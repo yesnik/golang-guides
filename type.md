@@ -14,6 +14,10 @@ In fact, there's really only one difference: we add one extra parameter, a *rece
 - Go lets you name a receiver parameter whatever you want. By convention, Go developers usually use a name consisting of a single letter -
    the first letter of the receiver's type name, in lowercase. (This is why we used `c` as the name for our `CurrencyName` receiver parameter.)
 - Go uses receiver parameters instead of the `self` in Python or `this` in Javascript.
+- A defined type supports all the same operators as its underlying type. A type based on `int`, for example, would support `+`, `-`, `*`, `/`, `==`, `>`, and `<` operators.
+    ```go
+	fmt.Println(Gallons(2) < Gallons(3)) // true
+	```
 
 Below, we define a type named `CurrencyName`, with an underlying type of `string`.
 Then, we define a method named `getName`. Because `getName` has a receiver parameter with a type of `CurrencyName`, 
