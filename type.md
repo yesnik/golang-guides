@@ -1,5 +1,9 @@
 # Type
 
+- Type definitions allow us to create new types of our own.
+- Each defined type is based on an *underlying type* that determines how values are stored.
+- Defined types can use any type as an underlying type, although structs are most commonly used.
+
 ## Defining methods
 
 - A method definition is very similar to a function definition. 
