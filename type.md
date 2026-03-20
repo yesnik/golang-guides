@@ -171,6 +171,9 @@ func main() {
 }
 ```
 
+Go developers generally only rely on encapsulation when it's necessary, such as when field data needs to be validated by setter methods. 
+In Go, if you don't see a need to encapsulate a field, it's generally okay to export it and allow direct access to it.
+
 ## Getter methods
 
 By convention, a getter method's name should be the same as the name of the field or variable it accesses. 
