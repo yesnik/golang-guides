@@ -7,6 +7,9 @@ They let us define variables and function parameters that will hold *any* type, 
 
 An interface type is defined as a set of method signatures.
 
+Interface types don't describe what a value is: they don't say what its underlying type is, or how its data is stored. 
+They only describe what a value can do: what methods it has.
+
 ```go
 type myInterface interface {
 	method()
