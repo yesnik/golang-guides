@@ -7,6 +7,19 @@ They let us define variables and function parameters that will hold *any* type, 
 
 An interface type is defined as a set of method signatures.
 
+```go
+type myInterface interface {
+	method()
+    methodWithParams(int)
+    methodWithReturn() string
+}
+```
+
+Any type that has all the methods listed in an interface definition is said to *satisfy* that interface. 
+A type that satisfies an interface can be used anywhere that interface is called for.
+
+A type can have methods in addition to those listed in the interface, but it mustn't be missing any, or it doesn't satisfy that interface.
+
 A type implements an interface *by implementing its methods*. There is *no explicit declaration of intent*, no "implements" keyword.
 
 Implicit interfaces decouple the definition of an interface from its implementation, which could then appear in any package without prearrangement.
