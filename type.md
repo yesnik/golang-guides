@@ -170,3 +170,27 @@ func main() {
 	fmt.Println(dat.Year) // 2020
 }
 ```
+
+## Getter methods
+
+By convention, a getter method's name should be the same as the name of the field or variable it accesses. 
+So we need `Year()` getter method to access a field `year`.
+
+Getter methods don't need to modify the receiver at all, so we could use a direct `Date` value as a receiver. 
+But if any method on a type takes a pointer receiver, convention says that they all should, for consistency's sake. 
+
+```go
+type Date struct {
+	year int
+	month int
+	day int
+}
+
+func (d *Date) Year() int {
+	return d.year
+}
+
+date := calendar.Date{}
+date.SetYear(2020)
+fmt.Println(date.Year()) // 2020
+```
