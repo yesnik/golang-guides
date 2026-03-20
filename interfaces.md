@@ -22,6 +22,8 @@ A type can have methods in addition to those listed in the interface, but it mus
 
 A type implements an interface *by implementing its methods*. There is *no explicit declaration of intent*, no "implements" keyword.
 
+A type can satisfy multiple interfaces, and an interface can have multiple types that satisfy it.
+
 Implicit interfaces decouple the definition of an interface from its implementation, which could then appear in any package without prearrangement.
 
 ```go
