@@ -1,5 +1,10 @@
 # Interfaces
 
+We don't care whether we have a `Pen` or a `Pencil`, we just need something with a `Draw` method. 
+We don't care whether we have a `Car` or a `Boat`, you just need something with a `Steer` method.
+That's what Go *interfaces* accomplish. 
+They let us define variables and function parameters that will hold *any* type, as long as that type defines certain methods.
+
 An interface type is defined as a set of method signatures.
 
 A type implements an interface *by implementing its methods*. There is *no explicit declaration of intent*, no "implements" keyword.
