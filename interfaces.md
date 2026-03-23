@@ -88,6 +88,42 @@ And so those are the only methods Go allows us to call.
 **Note:** It's just fine to assign a type that has other methods to a variable with an interface type. 
 As long as you don't actually call those other methods, everything will work.
 
+## Methods with pointer receivers
+
+If a type declares methods with pointer receivers, then we'll only be able to use pointers to that type when assigning to interface variables.
+The `toggle` method on the `Switch` type below has to use a pointer receiver so it can modify the receiver.
+
+```go
+type Switch string
+func (s *Switch) toggle() {
+	if *s == "on" {
+		*s = "off"
+	} else {
+		*s = "on"
+	}
+	fmt.Println(*s)
+}
+
+type Toggleable interface {
+	toggle()
+}
+
+func main() {
+	s := Switch("off")
+	var t Toggleable = s
+	// Error: cannot use s (variable of string type Switch) as Toggleable value in variable declaration: Switch does not implement Toggleable (method toggle has pointer receiver)
+	t.toggle()
+	t.toggle()
+}
+```
+
+When Go decides whether a value satisfies an interface, pointer methods aren't included for direct values. 
+But they are included for pointers. So the solution is to assign a pointer to a `Switch` to the `Toggleable` variable, instead of a direct `Switch` value:
+
+```go
+var t Toggleable = &s
+```
+
 ---
 
 Below `v` is a `Vertex` (not `*Vertex`) and does NOT implement `Abser` interface. There will be an error:
