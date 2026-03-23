@@ -52,6 +52,37 @@ func main() {
 }
 ```
 
+## Call methods defined as part of the interface
+
+Once you assign a value to a variable (or method parameter) with an `interface` type, you *can only call methods* that are specified by the interface on it.
+
+```go
+type Whistle string
+
+func (w Whistle) MakeSound() {
+	fmt.Println("Tweet!")
+}
+
+func (w Whistle) MakeSuperSound() {
+	fmt.Println("Super Tweet!")
+}
+
+type NoiseMaker interface {
+	MakeSound()
+}
+
+func play(n NoiseMaker) {
+	n.MakeSound()
+    n.MakeSuperSound() // Error: n.MakeSuperSound undefined (type NoiseMaker has no field or method MakeSuperSound)
+}
+
+func main() {
+	var toy NoiseMaker
+	toy = Whistle("Toyco Canary")
+	play(toy)
+}
+```
+
 Below `v` is a `Vertex` (not `*Vertex`) and does NOT implement `Abser` interface. There will be an error:
 
 ```go
