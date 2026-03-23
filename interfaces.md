@@ -82,6 +82,10 @@ func main() {
 	play(toy)
 }
 ```
+When we have a variable of an interface type, the only methods we can be sure it has are the methods that are defined in the interface. 
+And so those are the only methods Go allows us to call.
+
+---
 
 Below `v` is a `Vertex` (not `*Vertex`) and does NOT implement `Abser` interface. There will be an error:
 
