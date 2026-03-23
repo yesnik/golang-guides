@@ -85,6 +85,9 @@ func main() {
 When we have a variable of an interface type, the only methods we can be sure it has are the methods that are defined in the interface. 
 And so those are the only methods Go allows us to call.
 
+**Note:** It's just fine to assign a type that has other methods to a variable with an interface type. 
+As long as you don't actually call those other methods, everything will work.
+
 ---
 
 Below `v` is a `Vertex` (not `*Vertex`) and does NOT implement `Abser` interface. There will be an error:
