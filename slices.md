@@ -224,6 +224,22 @@ func main() {
 */
 ```
 
+## A slice as an argument is updated
+
+A slice has a pointer to an underlying array. In the `modify` function we're changing underlying array.
+
+```go
+func modify(arr []string) {
+	arr[0] = "updated"
+}
+
+s := []string{"a", "b"}
+
+modify(s)
+
+fmt.Println(s) // [updated b]
+```
+
 ## Appending to a slice
 
 Function `append` allows us to append new elements to a slice.
