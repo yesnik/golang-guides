@@ -183,3 +183,27 @@ func main() {
 }
 // Output: 321
 ```
+
+### Ensuring files get closed using `deferred`
+
+Because the `defer` keyword can ensure a function call is made "no matter what", it's usually used for code that needs to be run even in the event of an error. 
+One common example of this is closing files after they've been opened.
+
+```go
+file, err := os.Open("data.txt")
+if err != nil {
+    fmt.Printf("Error opening file: %v\n", err)
+    return
+}
+defer file.Close() // <-- Use "defer" to ensure the file is closed
+
+scanner := bufio.NewScanner(file)
+for scanner.Scan() {
+    line := scanner.Text()
+    fmt.Println(line)
+}
+
+if err := scanner.Err(); err != nil {
+    fmt.Printf("Error during scanning: %v\n", err)
+}
+```
