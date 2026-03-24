@@ -278,10 +278,13 @@ The interface type that specifies zero methods is known as the *empty interface*
 interface{}
 ```
 
-An empty interface may hold values of any type. (Every type implements at least zero methods.)
+An empty interface may hold values of any type. 
+The empty interface doesn't have any methods that are required to satisfy it, and so every type satisfies it.
 
 Empty interfaces are used by code that handles values of unknown type. 
 For example, `fmt.Print` takes any number of arguments of type `interface{}`.
+
+If we declare a function that accepts a parameter with the empty interface as its type, then we can pass it values of any type as an argument:
 
 ```go
 func main() {
