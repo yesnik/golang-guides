@@ -225,6 +225,9 @@ func main() {
 Things like inaccessible files, network failures, and bad user input should usually be considered "normal", and should be handled gracefully though error values.
 Generally, calling panic should be reserved for "impossible" situations: errors that indicate a bug in the program, not a mistake on the user's part.
 
+Most programs should panic only in the event of an unanticipated error. 
+You should think about all possible errors your program might encounter (such as missing files or badly formatted data), and handle those using error values instead.
+
 ### Stack traces
 
 When a program panics, a stack trace, or listing of the call stack, is included in the panic output. 
