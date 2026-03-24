@@ -248,3 +248,41 @@ func three() {
 }
 ```
 
+### recover
+
+When there is no panic, calls to `recover` return `nil`.
+But when there is a panic, `recover` returns whatever value was passed to panic.
+This can be used to gather information about the panic, to aid in recovering or to report errors to the user.
+
+```go
+func calmDown() {
+	fmt.Println("In calmDown:", recover()) // In calmDown: Oops!
+}
+
+func main() {
+	defer calmDown()
+	panic("Oops!")
+	fmt.Println("Normal exit") // <-- not executed
+}
+```
+
+This code takes the return value of recover and converts it back to an error value. 
+Once that's done, we can safely call the `Error` method:
+
+```go
+func calmDown() {
+	p := recover()
+	err, ok := p.(error)
+	if ok {
+		fmt.Println("In calmDown:", err.Error()) // In calmDown: there is an error
+	}
+}
+
+func main() {
+	defer calmDown()
+	err := fmt.Errorf("there is an error")
+	panic(err)
+}
+
+```
+
