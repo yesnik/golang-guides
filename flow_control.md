@@ -184,7 +184,7 @@ func main() {
 // Output: 321
 ```
 
-### Ensuring files get closed using `deferred`
+### Ensuring files get closed using `defer`
 
 Because the `defer` keyword can ensure a function call is made "no matter what", it's usually used for code that needs to be run even in the event of an error. 
 One common example of this is closing files after they've been opened.
@@ -265,6 +265,8 @@ func main() {
 	fmt.Println("Normal exit") // <-- not executed
 }
 ```
+
+When a program panics, any deferred function calls will still be made, allowing cleanup code to be executed before a crash.
 
 This code takes the return value of recover and converts it back to an error value. 
 Once that's done, we can safely call the `Error` method:
