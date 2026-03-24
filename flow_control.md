@@ -156,7 +156,7 @@ default:
 }
 ```
 
-## Defer
+## defer
 
 A `defer` statement defers the execution of a function until the surrounding function returns.
 The deferred call's arguments are evaluated immediately, but the function call is not executed until the surrounding function returns.
@@ -207,3 +207,41 @@ if err := scanner.Err(); err != nil {
     fmt.Printf("Error during scanning: %v\n", err)
 }
 ```
+
+## panic
+
+When a program panics, the current function stops running, and the program prints a log message and crashes.
+
+We can cause a panic ourself simply by calling the built-in `panic` function.
+The `panic` function expects a single argument that satisfies the empty interface (that is, it can be of any type).
+That argument is converted to a `string` (if necessary) and printed as part of the panic's log message.
+
+```go
+func main() {
+	panic("Some error occured!") // panic: Some error occured!
+}
+```
+
+### Stack traces
+
+When a program panics, a stack trace, or listing of the call stack, is included in the panic output. 
+This can be useful in determining what caused the program to crash.
+
+```go
+func main() {
+	one()
+}
+
+func one() {
+	two()
+}
+
+func two() {
+	three()
+}
+
+func three() {
+	panic("This call stack's too deep for me!")
+}
+```
+
