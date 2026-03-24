@@ -19,7 +19,7 @@ type myInterface interface {
 ```
 
 Any type that has all the methods listed in an interface definition is said to *satisfy* that interface. 
-A type that satisfies an interface can be used anywhere that interface is called for.
+A type that satisfies an interface can be assigned to any variable or function parameter that uses that interface as its type.
 
 A type can have methods in addition to those listed in the interface, but it mustn't be missing any, or it doesn't satisfy that interface.
 
