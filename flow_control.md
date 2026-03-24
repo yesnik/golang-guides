@@ -283,6 +283,23 @@ func main() {
 	err := fmt.Errorf("there is an error")
 	panic(err)
 }
-
 ```
 
+### Can we use `panic` and `recover` like exceptions?
+
+We strongly recommend against it, and so do the Go language maintainers. 
+When designing Go, its creators didn't try to make `panic` and `recover` easy or pleasant to use, so that they'd be used less often.
+
+This is the Go designers’ response to one of the major weaknesses of exceptions: they can make program flow much more complex. 
+Instead, Go developers are encouraged to handle errors the exact same way they handle the other parts of their program: 
+with `if` and `return` statements, along with `error` values. 
+
+Sure, dealing with errors directly within a function can make that function’s code a little longer, 
+but that beats not dealing with the errors at all. (The Go creators found many developers using exceptions would just raise an exception and then
+not properly handle it later.) 
+
+Dealing with errors directly also makes it immediately obvious how the error is handled - 
+you don't have to go look at a different part of the program to see the error handling code.
+
+So don't look for an equivalent to exceptions in Go. That feature has been left out, on purpose. 
+It may require a period of adjustment for developers used to using exceptions, but the Go maintainers believe it makes for better software in the end.
