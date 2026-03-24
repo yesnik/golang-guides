@@ -504,3 +504,6 @@ func main() {
 	}
 }
 ```
+
+The `error` type is a *predeclared identifier*, like `int` or `string`. And so, like other predeclared identifiers, it's not part of any package. 
+It's part of the "universe block", meaning it's available everywhere, regardless of what package you're in.
