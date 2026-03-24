@@ -124,99 +124,6 @@ But they are included for pointers. So the solution is to assign a pointer to a 
 var t Toggleable = &s
 ```
 
-## Type assertions
-
-When we have a value of a concrete type assigned to a variable with an interface type, a type assertion lets us get the concrete type back. 
-It's kind of like a type conversion.
-
-```go
-type TapePlayer struct {
-	Batteries string
-}
-func (t TapePlayer) Play(song string) {
-	fmt.Println("Playing", song)
-}
-func (t TapePlayer) Stop() {
-	fmt.Println("Stopped!")
-}
-
-type TapeRecorder struct {
-	Microphones int
-}
-func (t TapeRecorder) Play(song string) {
-	fmt.Println("Playing", song)
-}
-func (t TapeRecorder) Record() {
-	fmt.Println("Recording")
-}
-func (t TapeRecorder) Stop() {
-	fmt.Println("Stopped!")
-}
-
-type Player interface {
-	Play(string)
-	Stop()
-}
-
-func playList(device Player, songs []string) {
-	for _, song := range songs {
-		device.Play(song)
-	}
-	device.Stop()
-}
-
-func main() {
-	var player Player = TapeRecorder{}
-	mixtape := []string{"Jessie's Girl", "Whip It", "9 to 5"}
-	playList(player, mixtape)
-
-	var tapeRecorder TapeRecorder = player.(TapeRecorder) // <-- Type assertion
-	tapeRecorder.Record() // Recording
-}
-```
-
-In plain language, the type assertion above says something like "I know this variable uses the interface type `Player`, but I'm pretty sure this `Player` is actually a `TapeRecorder`."
-
-### Attempt to do a type assertion
-
-We're creating a `TryVehicle` method that calls all the methods from the `Vehicle` interface. 
-Then, we try to do a type assertion to get a concrete `Truck` value. 
-If successful, we call `LoadCargo` on the `Truck` value.
-
-```go
-type Truck string
-
-func (t Truck) Accelerate() {
-	fmt.Println("Speeding up")
-}
-func (t Truck) Brake() {
-	fmt.Println("Stopping")
-}
-func (t Truck) LoadCargo(cargo string) {
-	fmt.Println("Loading", cargo)
-}
-
-type Vehicle interface {
-	Accelerate()
-	Brake()
-}
-
-func TryVehicle(vehicle Vehicle) {
-	vehicle.Accelerate()
-	vehicle.Brake()
-	truck, ok := vehicle.(Truck) // <-- attempt a type assertion to get a concrete Truck value
-	if ok {
-		truck.LoadCargo("food")
-	}
-}
-
-func main() {
-	TryVehicle(Truck("Toyota Tundra"))
-}
-```
-
-**Note**: This is another place Go follows the "comma ok idiom" that we can also see when accessing maps.
-
 ---
 
 Below `v` is a `Vertex` (not `*Vertex`) and does NOT implement `Abser` interface. There will be an error:
@@ -427,6 +334,99 @@ func main() {
 }
 ```
 
+### Type assertion example
+
+When we have a value of a concrete type assigned to a variable with an interface type, a type assertion lets us get the concrete type back. 
+It's kind of like a type conversion.
+
+```go
+type TapePlayer struct {
+	Batteries string
+}
+func (t TapePlayer) Play(song string) {
+	fmt.Println("Playing", song)
+}
+func (t TapePlayer) Stop() {
+	fmt.Println("Stopped!")
+}
+
+type TapeRecorder struct {
+	Microphones int
+}
+func (t TapeRecorder) Play(song string) {
+	fmt.Println("Playing", song)
+}
+func (t TapeRecorder) Record() {
+	fmt.Println("Recording")
+}
+func (t TapeRecorder) Stop() {
+	fmt.Println("Stopped!")
+}
+
+type Player interface {
+	Play(string)
+	Stop()
+}
+
+func playList(device Player, songs []string) {
+	for _, song := range songs {
+		device.Play(song)
+	}
+	device.Stop()
+}
+
+func main() {
+	var player Player = TapeRecorder{}
+	mixtape := []string{"Jessie's Girl", "Whip It", "9 to 5"}
+	playList(player, mixtape)
+
+	var tapeRecorder TapeRecorder = player.(TapeRecorder) // <-- Type assertion
+	tapeRecorder.Record() // Recording
+}
+```
+
+In plain language, the type assertion above says something like "I know this variable uses the interface type `Player`, but I'm pretty sure this `Player` is actually a `TapeRecorder`."
+
+### Attempt to do a type assertion
+
+We're creating a `TryVehicle` method that calls all the methods from the `Vehicle` interface. 
+Then, we try to do a type assertion to get a concrete `Truck` value. 
+If successful, we call `LoadCargo` on the `Truck` value.
+
+```go
+type Truck string
+
+func (t Truck) Accelerate() {
+	fmt.Println("Speeding up")
+}
+func (t Truck) Brake() {
+	fmt.Println("Stopping")
+}
+func (t Truck) LoadCargo(cargo string) {
+	fmt.Println("Loading", cargo)
+}
+
+type Vehicle interface {
+	Accelerate()
+	Brake()
+}
+
+func TryVehicle(vehicle Vehicle) {
+	vehicle.Accelerate()
+	vehicle.Brake()
+	truck, ok := vehicle.(Truck) // <-- attempt a type assertion to get a concrete Truck value
+	if ok {
+		truck.LoadCargo("food")
+	}
+}
+
+func main() {
+	TryVehicle(Truck("Toyota Tundra"))
+}
+```
+
+**Note**: This is another place Go follows the "comma ok idiom" that we can also see when accessing maps.
+
 ## Type switches
 
 *A type switch* is a construct that permits several type assertions in series.
@@ -481,3 +481,26 @@ func main() {
 }
 ```
 
+## Implement an `error` interface
+
+```go
+type OverheatError float64
+func (o OverheatError) Error() string {
+	return fmt.Sprintf("Overheating by %0.2f degrees!", o)
+}
+
+func checkTemperature(actual float64, safe float64) error {
+	excess := actual - safe
+	if excess > 0 {
+		return OverheatError(excess)
+	}
+	return nil
+}
+
+func main() {
+	var err error = checkTemperature(120.0, 100.0)
+	if err != nil {
+		log.Fatal(err) // 2026/03/20 20:00:15 Overheating by 20.00 degrees!
+	}
+}
+```
