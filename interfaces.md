@@ -5,7 +5,7 @@ We don't care whether we have a `Car` or a `Boat`, you just need something with 
 That's what Go *interfaces* accomplish. 
 They let us define variables and function parameters that will hold *any* type, as long as that type defines certain methods.
 
-An interface type is defined as a set of method signatures.
+An interface definition needs to contain a list of method names, along with any parameters or return values those methods are expected to have.
 
 Interface types don't describe what a value is: they don't say what its underlying type is, or how its data is stored. 
 They only describe what a value can do: what methods it has.
