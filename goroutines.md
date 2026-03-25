@@ -56,6 +56,12 @@ func main() {
 
 The call to `time.Sleep` in the main goroutine gives more than enough time for both the a and b goroutines to finish running.
 
+Notice that `a()`, `b()` functions don't have a return value, because we can't use function return values in a `go` statement.
+
+Under normal circumstances, Go makes no guarantees about when it will switch between goroutines, or for how long. 
+This allows goroutines to run in whatever way is most efficient. 
+But if the order of our goroutines is important to us, we need to synchronize them using *channels*. 
+
 ## Select
 
 The `select` statement lets a goroutine wait on multiple communication operations.
