@@ -164,6 +164,10 @@ func main() {
 	fmt.Println(receivedValue)
 }
 ```
+
 This will cause the `hi()` function to run within the `main` goroutine. 
 This also fails with a deadlock error, for the same reason as above: 
 the *send operation* in `hi()` causes the main goroutine to block, because there's no *other* goroutine to do *a receive* operation, so it stays blocked.
+
+Let's remove `myChannel <- "Hi"` from the code above.
+This also causes a deadlock, but for a different reason: the main goroutine tries to receive a value, but now there's nothing to send a value.
