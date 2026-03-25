@@ -125,3 +125,25 @@ func main() {
 	}
 }
 ```
+
+## Fatal error: all goroutines are asleep - deadlock!
+
+This happens because the main goroutine blocks, waiting for another goroutine to receive from the channel. 
+But the other goroutine doesn't do any receive operations, so the main goroutine stays blocked.
+
+```go
+func hi(myChannel chan string) {
+	// fmt.Println(<-myChannel) // <-- Uncomment this to fix the error
+	myChannel <- "Hi"
+}
+
+func main() {
+	myChannel := make(chan string)
+	
+	go hi(myChannel)
+	myChannel <- "Hello" // Here we send to a channel, but other goroutine doesn't do any receive operations
+
+	receivedValue := <-myChannel
+	fmt.Println(receivedValue)
+}
+```
