@@ -147,3 +147,23 @@ func main() {
 	fmt.Println(receivedValue)
 }
 ```
+
+Let's remove `go` operator:
+
+```go
+func hi(myChannel chan string) {
+	myChannel <- "Hi"
+}
+
+func main() {
+	myChannel := make(chan string)
+	
+	hi(myChannel) // <-- Here we removed "go" operator
+
+	receivedValue := <-myChannel
+	fmt.Println(receivedValue)
+}
+```
+This will cause the `hi()` function to run within the `main` goroutine. 
+This also fails with a deadlock error, for the same reason as above: 
+the *send operation* in `hi()` causes the main goroutine to block, because there's no *other* goroutine to do *a receive* operation, so it stays blocked.
