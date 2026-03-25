@@ -51,6 +51,25 @@ func main() {
 }
 ```
 
+### Example: hello
+
+In the `main` function, we create the channel that we're going to pass to `hello` using the built-in `make` function. 
+Then we call `hello()` as a new goroutine. 
+Using a separate goroutine is important, because channels should only be used to communicate *between* goroutines.
+
+```go
+func hello(myChannel chan string) {
+	myChannel <- "Hi"
+}
+
+func main() {
+	myChannel := make(chan string)
+	go hello(myChannel)
+	receivedValue := <-myChannel
+	fmt.Println(receivedValue)
+}
+```
+
 ## Buffered Channels
 
 Channels can be buffered. Provide the buffer length as the second argument to make to initialize a buffered channel:
