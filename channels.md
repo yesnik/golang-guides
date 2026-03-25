@@ -1,16 +1,27 @@
 # Channels
 
-Channels are a typed conduit through which you can send and receive values with the channel operator, <-.
+**Channels** are a typed conduit through which you can send and receive values with the channel operator, `<-`.
+It looks like an arrow pointing from the value we're sending to the channel we're sending it on.
 
 ```go
 ch <- v    // Send v to channel ch. The data flows in the direction of the arrow.
+```
+
+We also use the `<-` operator to receive values from a channel. It kind of looks like we're pulling a value out of the channel:
+
+```go
 v := <-ch  // Receive from ch, and assign value to v.
 ```
+
+Each channel only carries values of a particular type, so you might have one channel for `int` values, and another channel for values with a `struct` type. 
 
 Like maps and slices, channels must be created before use:
 
 ```go
-ch := make(chan int)
+var myChannel chan int // Declare a variable to hold a channel
+myChannel = make(chan int) // Actually create the channel
+
+myChannel := make(chan int) // Create a channel and declare a variable at once
 ```
 
 By default, sends and receives block until the other side is ready. This allows goroutines to synchronize without explicit locks or condition variables.
