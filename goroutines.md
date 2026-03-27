@@ -26,6 +26,8 @@ The evaluation of `f`, `x`, `y` happens in the current goroutine and the executi
 Goroutines run in the same address space, so access to shared memory must be synchronized. 
 The `sync` package provides useful primitives, although you won't need them much in Go as there are other primitives.
 
+Go programs end when the `main` goroutine stops, even if other goroutines have not completed their work yet.
+
 ```go
 import (
 	"fmt"
