@@ -145,9 +145,6 @@ func main() {
 
 ## Function values
 
-The Go language supports first-class functions. In a programming language with first-class functions, 
-functions can be assigned to variables, and then called from those variables.
-
 Functions are values too. They can be passed around just like other values. Function values may be used as function arguments and return values.
 
 ```go
@@ -168,6 +165,50 @@ func main() {
 		return x + " " + y + "!"
 	}
 	fmt.Println(compose(exclamation_point_add)) // Hello World!
+}
+```
+
+### First-class functions
+
+The Go language supports first-class functions. In a programming language with first-class functions, 
+functions can be assigned to variables, and then called from those variables.
+
+```go
+func sayHi() {
+	fmt.Println("Hi")
+}
+
+func main() {
+	var myFunction func()
+    myFunction = sayHi
+    myFunction()
+}
+```
+
+### Passing functions to other functions
+
+Programming languages with first-class functions also allow you to pass functions as arguments to other functions. 
+This code defines simple `sayHi` and `sayBye` functions. 
+It also defines a `twice` function that takes another function as a parameter named `theFunction`. 
+The `twice` function then calls whatever function is stored in `theFunction` twice.
+
+```go
+func sayHi() {
+	fmt.Println("Hi")
+}
+
+func sayBye() {
+	fmt.Println("Bye")
+}
+
+func twice(theFunction func()) {
+	theFunction()
+	theFunction()
+}
+
+func main() {
+	twice(sayHi)
+	twice(sayBye)
 }
 ```
 
