@@ -1,21 +1,16 @@
 # Strings
 
+### strings.NewReplacer
+
 ```go
-import (
-	"fmt"
-	"strings"
-)
+messageRaw := "Hexxo Worxd"
+replacer := strings.NewReplacer("x", "l")
 
-func main() {
-	messageRaw := "Hexxo Worxd"
-	replacer := strings.NewReplacer("x", "l")
-
-	message := replacer.Replace(messageRaw) 
-	fmt.Println(message) // Hello World
-}
+message := replacer.Replace(messageRaw) 
+fmt.Println(message) // Hello World
 ```
 
-## `for ... range`
+### for ... range
 
 ```go
 str := "Hello"
@@ -25,4 +20,11 @@ for i, charCode := range str {
 	fmt.Println(string(charCode)) // H
 	fmt.Printf("%T", charCode) // int32
 }
+```
+
+### strings.Join()
+
+```go
+str := strings.Join([]string{"hello", "dear", "world"}, "-");
+fmt.Println(str) // hello-dear-world
 ```
