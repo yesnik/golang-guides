@@ -145,9 +145,10 @@ func main() {
 
 ## Function values
 
-Functions are values too. They can be passed around just like other values.
+The Go language supports first-class functions. In a programming language with first-class functions, 
+functions can be assigned to variables, and then called from those variables.
 
-Function values may be used as function arguments and return values.
+Functions are values too. They can be passed around just like other values. Function values may be used as function arguments and return values.
 
 ```go
 // Here we define typehint for `fn` argument
