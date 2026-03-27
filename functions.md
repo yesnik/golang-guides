@@ -212,6 +212,36 @@ func main() {
 }
 ```
 
+## Functions as types
+
+A function’s parameters and return value are part of its type. 
+A variable that holds a function needs to specify what parameters and return values that function should have. 
+That variable can only hold functions whose number and types of parameters and return values match the specified type.
+
+```go
+func sayHi() {
+	fmt.Println("Hi")
+}
+func divide(a int, b int) float64 {
+	return float64(a) / float64(b)
+}
+
+func main() {
+	// This variable will hold a function 
+	// with no parameters and no return value
+	var greeterFunction func()
+	// This variable will hold a function 
+	// with two int parameters and a float64 return value
+	var mathFunction func(int, int) float64
+
+	greeterFunction = sayHi
+	greeterFunction() // Hi
+
+	mathFunction = divide
+	fmt.Println(mathFunction(5, 2)) // 2.5
+}
+```
+
 ## Variadic functions
 
 Some function calls can take as few, or as many, arguments as needed:
