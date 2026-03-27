@@ -1,6 +1,8 @@
 # Channels
 
-**Channels** are a typed conduit through which you can send and receive values with the channel operator, `<-`.
+A **channel** is a data structure used to send values between goroutines. 
+
+We can send and receive values with the channel operator, `<-`.
 It looks like an arrow pointing from the value we're sending to the channel we're sending it on.
 
 ```go
@@ -13,7 +15,8 @@ We also use the `<-` operator to receive values from a channel. It kind of looks
 v := <-ch  // Receive from ch, and assign value to v.
 ```
 
-Each channel only carries values of a particular type, so you might have one channel for `int` values, and another channel for values with a `struct` type. 
+Each channel only carries values of a particular type, so you might have one channel for `int` values, 
+and another channel for values with a `struct` type. 
 
 Like maps and slices, channels must be created before use:
 
@@ -24,7 +27,8 @@ myChannel = make(chan int) // Actually create the channel
 myChannel := make(chan int) // Create a channel and declare a variable at once
 ```
 
-By default, sends and receives block until the other side is ready. This allows goroutines to synchronize without explicit locks or condition variables.
+By default, sending a value on a channel blocks (pauses) the current goroutine until that value is received.
+Attempting to receive a value also blocks the current goroutine until a value is sent on that channel.
 
 The example code sums the numbers in a slice, distributing the work between two goroutines. Once both goroutines have completed their computation, it calculates the final result.
 
