@@ -3,7 +3,8 @@
 ## Built-in 17 Basic Types in Go
 
 - boolean type - `bool`
-- 11 built-in integer numeric types:
+- 11 built-in integer numeric types. The number in the type name specifies the size in bits. Fewer bits consume less RAM or other storage;
+  more bits mean larger numbers can be stored. You should use int unless you have a specific reason to use one of these; it’s more efficient.
     - `int8`, `uint8` (alias `byte`)
     - `int16`, `uint16` 
     - `int32`, `uint32` (alias `rune`, it represents a Unicode code point)
@@ -13,11 +14,17 @@
         fmt.Println(reflect.TypeOf('A')) // int32
         ```
     - `int64`, `uint64`
-    - `int`, `uint`, `uintptr`.
-- 2 built-in floating-point numeric types: `float32`, `float64`:
-    ```go
-    fmt.Println(reflect.TypeOf(1.5)) // float64
-    ```
+    - `int`
+    - `uint`. This is just like `int`, but it holds only unsigned integers; it can't hold negative numbers.
+      This means we can fit larger numbers into the same amount of memory, as long as we're certain the values will never be negative.
+    - `uintptr` 
+- 2 built-in floating-point numeric types:
+	- `float32`
+ 	- `float64`. The `float64` type holds floating-point numbers and consumes 64 bits of memory.
+	    ```go
+	    fmt.Println(reflect.TypeOf(1.5)) // float64
+	    ```
+    - *Note*: There are no 8-bit or 16-bit variants for floating-point numbers.
 - 2 built-in complex numeric types: `complex64`, `complex128`.
 - `string` - a series of bytes that usually represent text characters.
 
