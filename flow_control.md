@@ -156,6 +156,31 @@ default:
 }
 ```
 
+### fallthrough
+
+Go automatically exits the `switch` at the end of a `case`'s code.
+There's a `fallthrough` keyword you can use in a `case`, if you do want the next `case`'s code to run as well.
+
+```go
+diskSpaceUsed := 91
+
+switch {
+case diskSpaceUsed >= 90:
+	fmt.Println("Call CTO")
+	fallthrough
+case diskSpaceUsed >= 80:
+	fmt.Println("Call developer")
+case diskSpaceUsed >= 70:
+	fmt.Println("Call manager")
+default:
+	fmt.Println("Ok")
+}
+/*
+Call CTO
+Call developer
+*/
+```
+
 ## defer
 
 A `defer` statement defers the execution of a function until the surrounding function returns.
