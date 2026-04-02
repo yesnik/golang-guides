@@ -21,6 +21,9 @@
 		utf8String := "Хай"
 		fmt.Println(utf8String, len(utf8String)) // Хай 6
         ```
+        When we pass a string to the `len` function, it returns the length in bytes, not runes.
+        The English alphabet string fits into 3 bytes - each rune requires just 1 byte because it's from the old ASCII character set.
+        But the Russian alphabet string takes 6 bytes - each rune requires 2 bytes to store.
     - `int64`, `uint64`
     - `int`
     - `uint`. This is just like `int`, but it holds only unsigned integers; it can't hold negative numbers.
