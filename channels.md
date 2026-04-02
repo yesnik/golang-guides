@@ -129,13 +129,40 @@ func main() {
 
 ## Buffered Channels
 
-Channels can be buffered. Provide the buffer length as the second argument to make to initialize a buffered channel:
+When a goroutine sends a value on an *unbuffered channel*, it immediately blocks until another goroutine receives the value. 
+*Buffered channels*, on the other hand, can hold a certain number of values before causing the sending goroutine to block.
+
+Provide the buffer length as the second argument to `make` to initialize a buffered channel:
 
 ```go
-ch := make(chan int, 100)
+ch := make(chan int, 3) // <-- This buffered channel can hold 3 values
+```
+When a goroutine sends a value via the channel, that value is added to the buffer.
+Instead of blocking, the sending goroutine continues running.
+
+```go
+channel <- "a"
 ```
 
-Sends to a buffered channel block only when the buffer is full. Receives block when the buffer is empty.
+The sending goroutine can continue sending values on the channel until the buffer is full; only then will an additional send operation cause the goroutine to block.
+
+```go
+channel <- "b"
+channel <- "c"
+channel <- "d"
+```
+
+When another goroutine receives a value from the channel, it pulls the earliest-added value from the buffer.
+
+```go
+fmt.Println(<-channel) // "a"
+```
+
+Additional receive operations will continue to empty the buffer, while additional sends will fill the buffer back up.
+
+```go
+fmt.Println(<-channel) // "b"
+```
 
 ```go
 func main() {
