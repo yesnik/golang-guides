@@ -68,17 +68,19 @@ func main() {
 It returns size of a file in bytes.
 
 ```go
-import (
-	"fmt"
-	"log"
-	"os"
-)
-
-func main() {
-	fileInfo, err := os.Stat("file.txt")
-	if err != nil {
-		log.Fatal(err)
-	}
-	fmt.Println(fileInfo.Size()) // Size of a file in bytes
+fileInfo, err := os.Stat("file.txt")
+if err != nil {
+	log.Fatal(err)
 }
+fmt.Println(fileInfo.Size()) // Size of a file in bytes
+```
+
+### fileInfo.Mode()
+
+```go
+fileInfo, err := os.Stat("data.txt")
+if err != nil {
+	log.Fatal(err)
+}
+fmt.Println(fileInfo.Mode()) // -rw-rw-rw-
 ```
