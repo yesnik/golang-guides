@@ -7,11 +7,19 @@
   more bits mean larger numbers can be stored. You should use int unless you have a specific reason to use one of these; it’s more efficient.
     - `int8`, `uint8` (alias `byte`)
     - `int16`, `uint16` 
-    - `int32`, `uint32` (alias `rune`, it represents a Unicode code point)
+    - `int32`, `uint32` (alias `rune`, it represents a Unicode code point).
         ```go
 		fmt.Println('A') // 65 
 	    fmt.Println('a') // 97
         fmt.Println(reflect.TypeOf('A')) // int32
+        ```
+	    Go uses UTF-8, a standard that represents Unicode characters using 1 to 4 bytes each.
+        Characters from the old ASCII set can still be represented using a single byte; other characters may require anywhere from 2 to 4 bytes.
+        ```go
+		asciiString := "Hey"
+		fmt.Println(asciiString, len(asciiString)) // Hey 3
+		utf8String := "Хай"
+		fmt.Println(utf8String, len(utf8String)) // Хай 6
         ```
     - `int64`, `uint64`
     - `int`
