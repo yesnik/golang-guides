@@ -23,6 +23,9 @@ Not all bits apply to all systems.
 fmt.Println(os.FileMode(0400)) // -r--------
 fmt.Println(os.FileMode(0600)) // -rw-------
 fmt.Println(os.FileMode(0700)) // -rwx------
+fmt.Println(os.FileMode(0070)) // ----rwx---
+fmt.Println(os.FileMode(0007)) // -------rwx
+fmt.Println(os.FileMode(0777)) // -rwxrwxrwx
 ```
 
 ## os.ReadDir
