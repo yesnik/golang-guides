@@ -20,12 +20,18 @@ The bits have the same definition on all systems, so that information about file
 Not all bits apply to all systems. 
 
 ```go
-fmt.Println(os.FileMode(0400)) // -r--------
-fmt.Println(os.FileMode(0600)) // -rw-------
-fmt.Println(os.FileMode(0700)) // -rwx------
-fmt.Println(os.FileMode(0070)) // ----rwx---
-fmt.Println(os.FileMode(0007)) // -------rwx
-fmt.Println(os.FileMode(0777)) // -rwxrwxrwx
+fmt.Println(os.FileMode(0000)) // ----------  No permissions
+fmt.Println(os.FileMode(0100)) // ---x------  Execute
+fmt.Println(os.FileMode(0200)) // --w-------  Write
+fmt.Println(os.FileMode(0300)) // --wx------  Write, Execute
+fmt.Println(os.FileMode(0400)) // -r--------  Read
+fmt.Println(os.FileMode(0500)) // -r-x------  Read, Execute
+fmt.Println(os.FileMode(0600)) // -rw-------  Read, Write
+fmt.Println(os.FileMode(0700)) // -rwx------  Read, Write, Execute
+
+fmt.Println(os.FileMode(0070)) // ----rwx---  Read, Write, Execute (for group)
+fmt.Println(os.FileMode(0007)) // -------rwx  Read, Write, Execute (for others)
+fmt.Println(os.FileMode(0777)) // -rwxrwxrwx  Read, Write, Execute (for all)
 ```
 
 ## os.ReadDir
