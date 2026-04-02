@@ -13,6 +13,18 @@ fmt.Println(os.Args)
 // [C:\Users\kenny\AppData\Local\Temp\go-build3300351132\b001\exe\average2.exe aa bb cc]
 ```
 
+## os.FileMode
+
+A `FileMode` type represents a file's mode and permission bits. 
+The bits have the same definition on all systems, so that information about files can be moved from one system to another portably. 
+Not all bits apply to all systems. 
+
+```go
+fmt.Println(os.FileMode(0400)) // -r--------
+fmt.Println(os.FileMode(0600)) // -rw-------
+fmt.Println(os.FileMode(0700)) // -rwx------
+```
+
 ## os.ReadDir
 
 `os.ReadDir` reads the named directory and returns a slice of `os.DirEntry` values, sorted by filename. 
