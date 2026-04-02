@@ -79,6 +79,27 @@ fmt.Printf("%3d: %08b\n", 1024, 1024)
 */
 ```
 
+## octal notation `%o`
+
+```go
+for i := 0; i <= 10; i++ {
+  fmt.Printf("%3d: %04o\n", i, i)
+}
+/*
+  0: 0000
+  1: 0001
+  2: 0002
+  3: 0003
+  4: 0004
+  5: 0005
+  6: 0006
+  7: 0007 // <-- Octal goes up to 7 in the first position
+  8: 0010 // <-- then the first position resets to 0, and the second position is incremented to 1
+  9: 0011
+ 10: 0012
+*/
+```
+
 ## fmt.Println
 
 Functions in the `fmt` package know how to handle arrays.
