@@ -1,6 +1,7 @@
 # Console Commands
 
 - `go mod init hello` - init module `hello`, file `go.mod` will be created
+- `go get .` - get dependencies for code in the current directory
 - `go get github.com/gin-gonic/gin` - install framework Gin. File `go.mod` - updated, `go.sum` - created. Files will be copied to `C:\Users\kenny\go\pkg\mod\github.com\gin-gonic\gin@v1.11.0`
 - `go run hello.go` - run program
 - `go build hello.go` - build executable file `hello`
