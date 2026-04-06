@@ -1,7 +1,15 @@
 # Installation
 
 - https://go.dev/doc/install
-- [Ubuntu](https://github.com/golang/go/wiki/Ubuntu)
+- [Ubuntu](https://go.dev/wiki/Ubuntu)
+
+## Windows
+
+### Choco
+
+- `choco install go`
+- `choco uninstall go`
+- `choco upgrade go`
 
 ## Simple program
 
