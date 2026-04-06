@@ -1,6 +1,6 @@
 # Console Commands
 
-- `go mod init hello` - init module `hello`, file `go.mod` will be created
+- `go mod init github.com/username/mymodule` - init module, file `go.mod` will be created. Using a fully qualified module path ensures your module can be imported and versioned correctly.
 - `go get .` - get dependencies for code in the current directory
 - `go get github.com/gin-gonic/gin` - install framework Gin. File `go.mod` - updated, `go.sum` - created. Files will be copied to `C:\Users\kenny\go\pkg\mod\github.com\gin-gonic\gin@v1.11.0`
 - `go run hello.go` - run program
