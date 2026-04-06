@@ -4,6 +4,7 @@
 - `go get .` - get dependencies for code in the current directory
 - `go get github.com/gin-gonic/gin` - install framework Gin. File `go.mod` - updated, `go.sum` - created. Files will be copied to `C:\Users\kenny\go\pkg\mod\github.com\gin-gonic\gin@v1.11.0`
 - `go run hello.go` - run program
+- `go run .` - run the package in the current directory
 - `go build hello.go` - build executable file `hello`
 - `go env GOPATH` - show workspace path
 - `go install` - command without the `@version` syntax is for installing from the current directory
