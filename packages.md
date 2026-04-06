@@ -2,6 +2,8 @@
 
 Go allows us to define our own packages. 
 
+A standalone program (as opposed to a library) is always in package `main`.
+
 **A package** is a group of code that all does similar things:
 
 - the `fmt` package formats output
