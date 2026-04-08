@@ -17,3 +17,4 @@
 - `go fmt hello.go` - format Go source code. Oh, *it uses tabs*, not spaces.
 - `go doc strconv` - show docs for a package `strconv`
 - `go doc strconv ParseFloat` - show docs for the `ParseFloat` function in the package `strconv`
+- `go test -v` - run tests
