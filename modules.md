@@ -35,4 +35,24 @@ So far, the file includes only the name of your module and the Go version your c
 But as you add dependencies, the `go.mod` file will list the versions your code depends on. 
 This keeps builds reproducible and gives you direct control over which module versions to use.
 
+Create a file `greetings.go`:
 
+```go
+package greetings
+
+import "fmt"
+
+// Hello returns a greeting for the named person.
+func Hello(name string) string {
+    // Return a greeting that embeds the name in a message.
+    message := fmt.Sprintf("Hi, %v. Welcome!", name)
+    return message
+}
+```
+
+This is the first code for your module. It returns a greeting to any caller that asks for one.
+
+In this code, you:
+
+- Declare a greetings package to collect related functions.
+- Implement a Hello function to return the greeting.
