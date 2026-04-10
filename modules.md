@@ -2,8 +2,12 @@
 
 In version 1.13, the authors of Go added a new way of managing the libraries a Go project depends on, called [Go modules](https://go.dev/ref/mod).
 
-Go code is grouped into packages, and packages are grouped into modules. 
+Within a Go module, code is organized into one or more packages. 
+The `main` package in a Go module contains the code that starts a Go program. 
+
 Your module specifies dependencies needed to run your code, including the Go version and the set of other modules it requires.
+
+Unlike other languages, Go imports only whole packages. You can't limit the import to specific types, functions, constants, or variables within a package.
 
 A module is a collection of packages that are released, versioned, and distributed together. 
 Modules may be downloaded directly from version control repositories or from module proxy servers.
@@ -17,9 +21,11 @@ The `main` module is the module containing the directory where the go command is
 
 You should include the following files in the repository:
 
-- `go.mod`: This is your project's manifest. It defines the module path and lists the specific versions of dependencies your code requires.
-   Without it, other developers or CI/CD pipelines won't know which versions of libraries to use, which can lead to broken builds if a dependency releases a breaking change.
-   This file declares the name of the module, the *minimum supported version of Go* for the module, and any other modules that your module depends on. 
+- `go.mod`:
+   - This is your project's manifest. It defines the module path and lists the specific versions of dependencies your code requires.
+   - Without it, other developers or CI/CD pipelines won't know which versions of libraries to use, which can lead to broken builds if a dependency releases a breaking change.
+   - It declares module's name, the *minimum supported version of Go* for the module, and any other modules that your module depends on.
+   - You shouldn't edit this file directly. Instead, use the `go get` and `go mod tidy` commands to manage changes to the file.
 - `go.sum`: This file contains cryptographic checksums for your dependencies. It acts as a security net, ensuring that the source code of a dependency hasn't been tampered with or modified since you first added it. If someone clones your repo and the downloaded dependency doesn't match the checksum in `go.sum`, Go will throw an error.
 
 ## Create a module
