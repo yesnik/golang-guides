@@ -5,9 +5,12 @@
 - boolean type - `bool`
 - 11 built-in integer numeric types. The number in the type name specifies the size in bits. Fewer bits consume less RAM or other storage;
   more bits mean larger numbers can be stored. You should use int unless you have a specific reason to use one of these; it’s more efficient.
-    - `int8`, `uint8` (alias `byte`)
-    - `int16`, `uint16` 
-    - `int32`, `uint32` (alias `rune`, it represents a Unicode code point).
+    - `int8` - `–128 to 127`
+    - `uint8` (alias `byte`) - `0 to 255`
+    - `int16` - `–32 768 to 32 767`
+    - `uint16` - `0 to 65535`
+    - `int32` - –2 147 483 648 to 2 147 483 647
+    - `uint32` (alias `rune`, it represents a Unicode code point) - `0 to 4294967295`
         ```go
 		fmt.Println('A') // 65 
 	    fmt.Println('a') // 97
@@ -30,7 +33,8 @@
 		fmt.Println(utf8.RuneCountInString(asciiString)) // 3
 		fmt.Println(utf8.RuneCountInString(utf8String)) // 3
         ```
-    - `int64`, `uint64`
+    - `int64` - `–9 223 372 036 854 775 808 to 9 223 372 036 854 775 807`
+    - `uint64` - `0 to 18 446 744 073 709 551 615`
     - `int`
     - `uint`. This is just like `int`, but it holds only unsigned integers; it can't hold negative numbers.
       This means we can fit larger numbers into the same amount of memory, as long as we're certain the values will never be negative.
