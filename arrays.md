@@ -20,6 +20,8 @@ fmt.Println(x[0], x[1]) // Good morning
 fmt.Println(x) // [Good morning]
 ```
 
+The main reason arrays exist in Go is to provide the backing store for slices, which are one of the most useful features of Go.
+
 ## Array literals
 
 If you know in advance what values an array should hold, you can initialize the array with those values using an array literal. 
