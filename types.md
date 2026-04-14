@@ -35,7 +35,7 @@
         ```
     - `int64` - `–9 223 372 036 854 775 808 to 9 223 372 036 854 775 807`
     - `uint64` - `0 to 18 446 744 073 709 551 615`
-    - `int`
+    - `int`. On a 32-bit CPU, `int` is a 32-bit signed integer like an `int32`. On most 64-bit CPUs, `int` is a 64-bit signed integer, just like an `int64`.
     - `uint`. This is just like `int`, but it holds only unsigned integers; it can't hold negative numbers.
       This means we can fit larger numbers into the same amount of memory, as long as we're certain the values will never be negative.
     - `uintptr` 
