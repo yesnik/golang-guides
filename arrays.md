@@ -92,3 +92,14 @@ We can use `[...]` and compiler will set the array's size automatically:
 arr := [...][2]int{{1, 2}, {3, 4}, {5, 6}}
 fmt.Printf("%T\n", arr) // [3][2]int
 ```
+
+## Sparse arrays
+
+A sparse array is a data structure designed to store large arrays containing mostly default values (e.g., zero or null) by only storing non-zero elements and their positions. 
+This technique significantly reduces memory usage and improves computation speed.
+
+```go
+var x = [...]int{1, 5: 5, 6, 10: 10, 11, 12}
+
+fmt.Println(x) // [1 0 0 0 0 5 6 0 0 0 10 11 12]
+```
