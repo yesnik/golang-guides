@@ -303,6 +303,20 @@ clear(s)
 fmt.Println(s, len(s)) // [  ] 3
 ```
 
+## Copy a slice
+
+The `copy` function takes two parameters. The first is the destination slice, and the second is the source slice. 
+The function copies as many values as it can from source to destination, limited by whichever slice is smaller, and returns the number of elements copied.
+
+The following code copies the first two elements of a four-element slice into a two-element slice:
+
+```go
+x := []int{1, 2, 3, 4}
+y := make([]int, 2)
+num := copy(y, x)
+fmt.Println(y, num) // [1 2] 2
+```
+
 ## Package `slices`
 
 ### `slices.Equal(a, b)`
