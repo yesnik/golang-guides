@@ -294,6 +294,15 @@ fmt.Println(s1, s2, s3, s4)
 // [s1 s1] [s1 s1 s2 s2] [NN s1 s2 s2 s3 s3] [NN s1 s2 s2 s3 s3 s4 s4]
 ```
 
+## Emptying a slice
+
+```go
+s := []string{"first", "second", "third"}
+fmt.Println(s, len(s)) // [first second third] 3
+clear(s)
+fmt.Println(s, len(s)) // [  ] 3
+```
+
 ## Package `slices`
 
 ### `slices.Equal(a, b)`
