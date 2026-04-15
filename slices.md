@@ -293,3 +293,24 @@ s4[0] = "NN"
 fmt.Println(s1, s2, s3, s4)
 // [s1 s1] [s1 s1 s2 s2] [NN s1 s2 s2 s3 s3] [NN s1 s2 s2 s3 s3 s4 s4]
 ```
+
+## Package `slices`
+
+### `slices.Equal(a, b)`
+
+```go
+import (
+	"fmt"
+	"slices"
+)
+
+func main() {
+	a := []int{1, 2, 3}
+	b := []int{1, 2, 3}
+	c := []int{1, 3, 2}
+	
+	fmt.Println(slices.Equal(a, b)) // true
+	fmt.Println(slices.Equal(b, c)) // false
+}
+```
+
