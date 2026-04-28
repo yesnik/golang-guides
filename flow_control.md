@@ -109,7 +109,7 @@ if t > 90 {
 
 ### If with a short statement
 
-Variables declared by the statement are only in scope until the end of the if. Also they are available inside any of the else blocks.
+Variables declared by the statement are only in scope until the end of the `if`. Also they are available inside any of the `else` blocks.
 
 ```go
 t := 14
@@ -118,7 +118,12 @@ if base := "Turn "; t < 15 {
 } else {
   fmt.Println(base + "off")
 }
-fmt.Println(base) // Error: undefined: base
+fmt.Println(base) // undefined: base (because `base` is out scope)
+```
+```go
+if err := process(); err != nil {
+  return err
+}
 ```
 
 ## switch
