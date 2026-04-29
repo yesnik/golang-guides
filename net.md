@@ -11,7 +11,12 @@ import (
 	"net/http"
 )
 
-func viewHandler(writer http.ResponseWriter, request *http.Request) {
+func home(writer http.ResponseWriter, request *http.Request) {
+	if r.URL.Path != "/" {
+		http.NotFound(w, r)
+		return
+	}
+
 	message := []byte("Hello, web!")
 	_, err := writer.Write(message)
 	if err != nil {
@@ -20,8 +25,13 @@ func viewHandler(writer http.ResponseWriter, request *http.Request) {
 }
 
 func main() {
-	http.HandleFunc("/hello", viewHandler)
-	err := http.ListenAndServe("127.0.0.1:8080", nil)
+	// Use the http.NewServeMux() function to initialize a new servemux, then
+	// register the home function as the handler for the "/" URL pattern.
+	mux := http.NewServeMux()
+	mux.HandleFunc("/", home)
+
+	log.Print("Starting server on 127.0.0.1:8000")
+	err := http.ListenAndServe("127.0.0.1:8080", mux)
 	log.Fatal(err)
 }
 ```
