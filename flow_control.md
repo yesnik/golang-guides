@@ -193,13 +193,12 @@ The deferred call's arguments are evaluated immediately, but the function call i
 
 ```go
 func main() {
-    defer fmt.Println("world")
-
-    fmt.Println("hello")
+	defer fmt.Println("A")
+	defer fmt.Println("B")
+	fmt.Println("C")
 }
 /*
-hello
-world
+C B A
 */
 ```
 
