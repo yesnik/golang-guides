@@ -77,3 +77,23 @@ fmt.Println(string([]byte{72, 101, 108, 108, 111})) // Hello
 // A string to a []byte
 fmt.Println([]byte("Hello")) // [72 101 108 108 111]
 ```
+
+### w.Header()
+
+```go
+// Set a new cache-control header. If an existing "Cache-Control" header exists it will be overwritten.
+w.Header().Set("Cache-Control", "public, max-age=86400")
+
+// In contrast, the Add() method appends a new "Cache-Control" header and can be called multiple times.
+w.Header().Add("Cache-Control", "public")
+w.Header().Add("Cache-Control", "max-age=86400")
+
+// Retrieve the first value for the "Cache-Control" header.
+w.Header().Get("Cache-Control") // public
+
+// Retrieve a slice of all values for the "Cache-Control" header.
+w.Header().Values("Cache-Control") // [public max-age=86400]
+
+// Delete all values for the "Cache-Control" header.
+w.Header().Del("Cache-Control")
+```
