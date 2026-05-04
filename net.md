@@ -103,3 +103,15 @@ To suppress the `Date` header we need to write:
 ```go
 w.Header()["Date"] = nil
 ```
+
+### r.URL.Query().Get("id")
+
+It allows to get query param from the URL: `/products/?id=123`
+
+```go
+id, err := strconv.Atoi(r.URL.Query().Get("id"))
+if err != nil || id < 1 {
+	http.NotFound(w, r)
+	return
+}
+```
