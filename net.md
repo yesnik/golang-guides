@@ -97,3 +97,9 @@ w.Header().Values("Cache-Control") // [public max-age=86400]
 // Delete all values for the "Cache-Control" header.
 w.Header().Del("Cache-Control")
 ```
+
+To suppress the `Date` header we need to write:
+
+```go
+w.Header()["Date"] = nil
+```
