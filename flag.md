@@ -1,5 +1,7 @@
 # Flag
 
+### flag.String
+
 ```go
 import (
 	"flag"
@@ -17,11 +19,24 @@ flag.Parse()
 fmt.Printf("Hello, %s!\n", *addr)
 ```
 
+### flag.Bool
+
+```go
+debug := flag.Bool("debug", false, "Is Debug enabled")
+flag.Parse()
+fmt.Println(*debug) // true
+```
+
+Command in the console:
+```bash
+go run main.go -debug=true
+```
+
 ### Help Commands
 
 It automatically generates a help message accessible via `-h` or `--help`: 
 
-```
+```bash
 go run .\cmd\web -help
 
 Usage of C:\Users\USR\AppData\Local\go-build\e9\e967ef59d4370fd91a6e181657b75f1a2ab74235b8a1784a1693b6dc9efa2a3e-d\web.exe:
