@@ -32,6 +32,19 @@ Command in the console:
 go run main.go -debug=true
 ```
 
+### flag.Int
+
+```go
+age := flag.Int("age", 0, "User's age")
+flag.Parse()
+fmt.Println(*age) // 18
+```
+
+Command in the console:
+```bash
+go run main.go -age=18
+```
+
 ### Help Commands
 
 It automatically generates a help message accessible via `-h` or `--help`: 
