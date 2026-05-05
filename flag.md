@@ -4,7 +4,7 @@
 
 ```go
 import (
-	"flag"
+  "flag"
   "fmt"
 )
 
@@ -60,4 +60,3 @@ Usage of C:\Users\USR\AppData\Local\go-build\e9\e967ef59d4370fd91a6e181657b75f1a
 ### Positional arguments
 
 Any arguments left after flags are parsed can be accessed via `flag.Args()`
-
