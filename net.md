@@ -115,3 +115,20 @@ if err != nil || id < 1 {
 	return
 }
 ```
+
+### Range requests are fully supported
+
+This is great if your application is serving large files and you want to support resumable downloads. 
+You can see this functionality in action if you use curl to request bytes 100-299 of the `picture.png` file:
+
+```bash
+curl -i -H "Range: bytes=100-299" --output - http://127.0.0.1:8080/static/img/picture.png
+
+HTTP/1.1 206 Partial Content
+Accept-Ranges: bytes
+Content-Length: 200
+Content-Range: bytes 100-299/1075
+Content-Type: image/png
+Last-Modified: Tue, 05 May 2026 04:35:21 GMT
+Date: Tue, 05 May 2026 05:49:52 GMT
+```
