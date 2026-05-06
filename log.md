@@ -32,8 +32,8 @@ We can also force your logger to use UTC datetimes (instead of local ones) by ad
 
 ## Log to files
 
-We could redirect the `stdout` and `stderr` streams to on-disk files when starting the application like so:
+We could redirect the `stdout` and `stderr` streams to files when starting the application:
 
 ```
-go run ./cmd/web >>/var/tmp/info.log 2>>/var/tmp/error.log
+go run ./cmd/web >>./info.log 2>> ./error.log
 ```
