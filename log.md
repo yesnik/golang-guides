@@ -11,6 +11,8 @@ This takes 3 parameters:
 
 ```go
 infoLog := log.New(os.Stdout, "INFO\t", log.Ldate|log.Ltime)
+
+infoLog.Printf("Starting server on %s", *addr)
 ```
 
 ## Error log
@@ -19,4 +21,8 @@ Create a logger for writing error messages in the same way, but use `stderr` as 
 
 ```go
 errorLog := log.New(os.Stderr, "ERROR\t", log.Ldate|log.Ltime|log.Llongfile)
+
+errorLog.Fatal(err)
 ```
+
+We can also force your logger to use UTC datetimes (instead of local ones) by adding the `log.LUTC` flag.
