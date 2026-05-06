@@ -37,3 +37,15 @@ We could redirect the `stdout` and `stderr` streams to files when starting the a
 ```
 go run ./cmd/web >>./info.log 2>> ./error.log
 ```
+
+Log to a file:
+
+```go
+f, err := os.OpenFile("./info.log", os.O_RDWR|os.O_CREATE, 0666)
+if err != nil {
+  log.Fatal(err)
+}
+defer f.Close()
+infoLog2 := log.New(f, "INFO\t", log.Ldate|log.Ltime)
+infoLog2.Printf("Hello")
+```
