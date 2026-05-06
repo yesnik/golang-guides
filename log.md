@@ -30,7 +30,7 @@ errorLog.Fatal(err)
 
 We can also force your logger to use UTC datetimes (instead of local ones) by adding the `log.LUTC` flag.
 
-## Log to a files
+## Log to files
 
 We could redirect the `stdout` and `stderr` streams to on-disk files when starting the application like so:
 
