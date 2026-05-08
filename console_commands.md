@@ -9,6 +9,7 @@
 - `go mod tidy` - it ensures that the `go.mod` file matches the source code in the module.
     It adds any missing module requirements necessary to build the current module’s packages and dependencies, and it removes requirements on modules that don’t provide any relevant packages.
     It also adds any missing entries to `go.sum` and removes unnecessary entries.
+- `go mod verify` - verify that the checksums of the downloaded packages on your machine match the entries in `go.sum`, so you can be confident that they haven't been altered
 - `go run hello.go` - run program
 - `go run .` - run the package in the current directory
 - `go build hello.go` - build executable file `hello`
