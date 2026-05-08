@@ -6,6 +6,7 @@
 - `go get github.com/go-sql-driver/mysql@v1.10.0` - download a specific version of a package
 - `go mod edit -replace example.com/greetings=../greetings` - The command specifies that `example.com/greetings` should be replaced with `../greetings` for the purpose of locating the dependency.
    After you run the command, the `go.mod` file in the hello directory should include a replace directive: `replace example.com/greetings => ../greetings`
+- `go mod download` - download the exact versions of all the packages that your project needs.
 - `go mod tidy` - it ensures that the `go.mod` file matches the source code in the module.
     It adds any missing module requirements necessary to build the current module’s packages and dependencies, and it removes requirements on modules that don’t provide any relevant packages.
     It also adds any missing entries to `go.sum` and removes unnecessary entries.
