@@ -37,3 +37,37 @@ func main() {
   Actual connections to the database are established lazily, as and when needed for the first time.
   So to verify that everything is set up correctly we need to use the `db.Ping()` method to create a connection and check for any errors.
 
+### Exec
+
+```go
+import (
+	"database/sql"
+	"fmt"
+	"log"
+
+	_ "github.com/go-sql-driver/mysql" // Import your specific database driver
+)
+
+func main() {
+	// 1. Open a connection
+	db, err := sql.Open("mysql", "root:@tcp(127.0.0.1:3306)/test")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer db.Close()
+
+	// 2. Prepare and execute the INSERT statement
+	// Use ? for MySQL/SQLite or $1, $2 for PostgreSQL
+	query := "INSERT INTO articles (title, content) VALUES (?, ?)"
+	result, err := db.Exec(query, "Golang", "Go is here")
+	if err != nil {
+		log.Fatalf("Insert failed: %v", err)
+	}
+
+	// 3. Optional: Get the last inserted ID (not supported by all drivers/DBs)
+	id, err := result.LastInsertId()
+	if err == nil {
+		fmt.Println("New record ID is:", id)
+	}
+}
+```
