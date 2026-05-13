@@ -71,3 +71,18 @@ func main() {
 	}
 }
 ```
+
+### QueryRow
+
+```go
+var title string
+err = db.QueryRow("SELECT title FROM articles WHERE id = ?", 1).Scan(&title)
+
+if err == sql.ErrNoRows {
+	fmt.Println("No record found with that ID")
+} else if err != nil {
+	log.Fatal(err)
+} else {
+	fmt.Println("Article title:", title)
+}
+```
