@@ -91,7 +91,7 @@ if err == sql.ErrNoRows {
 
 ### Query
 
-`Query` return many rows.
+`Query` returns many rows.
 
 ```go
 rows, err := db.Query("SELECT id, title, content FROM articles WHERE id > ?", 1)
