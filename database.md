@@ -2,7 +2,7 @@
 
 ## Sql
 
-Package `sql` provides a generic interface around SQL (or SQL-like) databases. The `sql` package must be used in conjunction with a database driver.
+Package [sql](https://pkg.go.dev/database/sql) provides a generic interface around SQL (or SQL-like) databases. The `sql` package must be used in conjunction with a database driver.
 
 ```go
 package main
@@ -74,6 +74,8 @@ func main() {
 
 ### QueryRow
 
+`QueryRow` returns one row.
+
 ```go
 var title string
 err = db.QueryRow("SELECT title FROM articles WHERE id = ?", 1).Scan(&title)
@@ -85,4 +87,35 @@ if err == sql.ErrNoRows {
 } else {
 	fmt.Println("Article title:", title)
 }
+```
+
+### Query
+
+`Query` return many rows.
+
+```go
+rows, err := db.Query("SELECT id, title, content FROM articles WHERE id > ?", 1)
+if err != nil {
+	log.Fatal(err)
+}
+defer rows.Close()
+
+type Article struct {
+	Id      int
+	Title   string
+	Content string
+}
+
+var articles []Article
+
+for rows.Next() {
+	var a Article
+
+	if err := rows.Scan(&a.Id, &a.Title, &a.Content); err != nil {
+		log.Fatal(err)
+	}
+
+	articles = append(articles, a)
+}
+fmt.Println(articles)
 ```
